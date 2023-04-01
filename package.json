@@ -11,9 +11,13 @@
         "clear": "docusaurus clear",
         "serve": "docusaurus serve",
         "write-translations": "docusaurus write-translations",
-        "write-heading-ids": "docusaurus write-heading-ids"
+        "write-heading-ids": "docusaurus write-heading-ids",
+        "build:fast": "cross-env BUILD_FAST=true npm run build --locale en",
+        "build:production": "npm run build"
     },
     "dependencies": {
+        "@crowdin/cli": "^3.10.1",
+        "@crowdin/crowdin-api-client": "^1.22.1",
         "@docusaurus/core": "^2.4.0",
         "@docusaurus/plugin-ideal-image": "^2.4.0",
         "@docusaurus/plugin-pwa": "^2.4.0",
@@ -26,7 +30,8 @@
     },
     "devDependencies": {
         "@docusaurus/module-type-aliases": "^2.4.0",
-        "all-contributors-cli": "^6.24.0"
+        "all-contributors-cli": "^6.24.0",
+        "cross-env": "^7.0.3"
     },
     "browserslist": {
         "production": [
@@ -41,6 +46,6 @@
         ]
     },
     "engines": {
-        "node": ">=16.14"
+        "node": ">=17.4"
     }
 }

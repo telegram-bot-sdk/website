@@ -9,19 +9,17 @@ const ConfigLocalized = require('./docusaurus.config.localized.json');
 
 const isDev = process.env.NODE_ENV === 'development';
 
-const isDeployPreview =
-  !!process.env.CF_PAGES && process.env.CF_PAGES_BRANCH === 'deploy-preview';
+const isCFPages = !!parseInt(process.env.CF_PAGES || '0');
 
-const isBranchDeploy =
-  !!process.env.CF_PAGES && process.env.CF_PAGES_BRANCH === 'main';
+const isDeployPreview = isCFPages && process.env.CONTEXT === 'preview';
 
 // Used to debug production build issues faster
-const isBuildFast = !!process.env.BUILD_FAST;
+const isBuildFast = !!parseInt(process.env.BUILD_FAST || '0');
 
 // Special deployment for staging locales until they get enough translations
 // https://telegram-bot-sdk-i18n-staging.vercel.app/
 const isI18nStaging = process.env.I18N_STAGING === 'true';
-const isVersioningDisabled = !!process.env.DISABLE_VERSIONING || isI18nStaging;
+const isVersioningDisabled = !!parseInt(process.env.DISABLE_VERSIONING || '0') || isI18nStaging;
 
 const baseUrl = process.env.BASE_URL ?? '/';
 const defaultLocale = 'en';
@@ -73,7 +71,7 @@ const config = {
   i18n: {
     defaultLocale,
     locales:
-      isDeployPreview || isBranchDeploy
+      isDeployPreview
         ? // Deploy preview and branch deploys: keep them fast!
         [defaultLocale]
         : isI18nStaging
@@ -236,16 +234,17 @@ const config = {
             return `https://github.com/${GITHUB_PATHS.WEBSITE}/edit/main/${nextVersionDocsDirPath}/${docPath}`;
           },
           disableVersioning: isVersioningDisabled,
-          lastVersion: isDev || isDeployPreview || isBranchDeploy ? 'current' : undefined,
+          lastVersion: isDev || isDeployPreview ? 'current' : undefined,
           onlyIncludeVersions: (() => {
             if (isBuildFast) {
               return ['current'];
             } else if (
               !isVersioningDisabled &&
-              (isDev || isDeployPreview || isBranchDeploy)
+              (isDev || isDeployPreview)
             ) {
               return ['current', ...versions];
             }
+
             return undefined;
           })(),
           versions: {
@@ -253,15 +252,15 @@ const config = {
               label: 'Next 🚧',
               noIndex: true,
             },
-            '3.x': {
-              noIndex: true,
-            },
-            '2.x': {
-              noIndex: true,
-            },
-            '1.x': {
-              noIndex: true,
-            },
+            // '3.x': {
+            //   noIndex: true,
+            // },
+            // '2.x': {
+            //   noIndex: true,
+            // },
+            // '1.x': {
+            //   noIndex: true,
+            // },
           },
         },
         blog: {
@@ -277,7 +276,7 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        gtag: !(isDeployPreview || isBranchDeploy)
+        gtag: !(isDeployPreview)
           ? {
             trackingID: ['A'],
           }
