@@ -13,7 +13,7 @@ const isDeployPreview =
   !!process.env.CF_PAGES && process.env.CF_PAGES_BRANCH === 'deploy-preview';
 
 const isBranchDeploy =
-  !!process.env.CF_PAGES && process.env.CF_PAGES_BRANCH === 'branch-deploy';
+  !!process.env.CF_PAGES && process.env.CF_PAGES_BRANCH === 'main';
 
 // Used to debug production build issues faster
 const isBuildFast = !!process.env.BUILD_FAST;
