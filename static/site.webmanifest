@@ -1,6 +1,6 @@
 {
-    "name": "TB SDK",
-    "short_name": "TB SDK",
+    "name": "Telegram Bot SDK",
+    "short_name": "Telegram Bot SDK",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "display": "standalone",
