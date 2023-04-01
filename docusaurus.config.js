@@ -472,18 +472,18 @@ const config = {
           },
         ],
       },
-      // algolia: {
-      //   appId: '',
-      //   apiKey: '',
-      //   indexName: '',
-      //   replaceSearchResultPathname:
-      //     isDev || isDeployPreview
-      //       ? {
-      //         from: /^\/docs\/next/g,
-      //         to: '/docs',
-      //       }
-      //       : undefined,
-      // },
+      algolia: {
+        appId: 'VON1CC1MKK',
+        apiKey: '91e3fd4489dc938711dcf349520c157f',
+        indexName: 'telegram-bot-sdk',
+        replaceSearchResultPathname:
+          isDev || isDeployPreview
+            ? {
+              from: /^\/docs\/next/g,
+              to: '/docs',
+            }
+            : undefined,
+      },
     }),
 };
 
