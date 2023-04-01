@@ -10,11 +10,10 @@ const ConfigLocalized = require('./docusaurus.config.localized.json');
 const isDev = process.env.NODE_ENV === 'development';
 
 const isDeployPreview =
-  !!process.env.NETLIFY && process.env.CONTEXT === 'deploy-preview';
+  !!process.env.CF_PAGES && process.env.CF_PAGES_BRANCH === 'deploy-preview';
 
-// Netlify branch deploy like "docusaurus-v2"
 const isBranchDeploy =
-  !!process.env.NETLIFY && process.env.CONTEXT === 'branch-deploy';
+  !!process.env.CF_PAGES && process.env.CF_PAGES_BRANCH === 'branch-deploy';
 
 // Used to debug production build issues faster
 const isBuildFast = !!process.env.BUILD_FAST;
