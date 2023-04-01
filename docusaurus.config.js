@@ -261,7 +261,7 @@ const config = {
         },
         gtag: !(isDeployPreview)
           ? {
-            trackingID: ['A'],
+            trackingID: ['G-M51VQVYYQP'],
           }
           : undefined,
       }),
