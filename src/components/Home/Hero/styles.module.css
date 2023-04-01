@@ -1,0 +1,86 @@
+:root {
+    --tbs-hero-bg: #fff;
+    --tbs-hero-subtitle-color: #444;
+    --tbs-hero-text-gradient: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 80%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+[data-theme='dark'] {
+    --tbs-hero-bg: #000;
+    --tbs-hero-subtitle-color: #888;
+    --tbs-hero-text-gradient: linear-gradient(to bottom, #ffffff 0%, #aaaaaa 100%);
+}
+
+ [data-theme='dark'] .heroBg {
+    opacity: 0.2;
+    background: conic-gradient(from 180deg at 50% 50%,#2a8af6 0deg,#a853ba 180deg,#e92a67 1turn);
+    border-radius: 100%;
+    mix-blend-mode: normal;
+    filter: blur(75px);
+    will-change: filter;
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    z-index: 0;
+ }
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--tbs-hero-bg);
+}
+
+.heroTitle {
+    font-weight: 900;
+    font-size: 4rem;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 1rem;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: var(--tbs-hero-text-gradient);
+}
+
+.heroSubtitle {
+    color: var(--tbs-hero-subtitle-color);
+    line-height: 2rem;
+    font-size: 1.3rem;
+}
+
+.heroLogo {
+    height: 248px;
+    width: 248px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    gap: 1rem;
+}
+
+.githubStars {
+    display: flex;
+    height: 46px;
+}
+
+@media (max-width: 768px) {
+    .heroLogo {
+        height: 50%;
+        width: 50%;
+    }
+
+    .heroTitle {
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}

@@ -1,0 +1,29 @@
+:root {
+    --feature-description-size: 14px;
+    --accents-5: #444;
+}
+
+[data-theme='dark'] {
+     --accents-5: #888;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureImage {
+  width: 200px;
+  height: 200px
+}
+
+.features h3 {
+    font-weight: 800;
+}
+
+.features p {
+    font-size: var(--feature-description-size);
+    color: var(--accents-5);
+}

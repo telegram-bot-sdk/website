@@ -1,0 +1,15 @@
+{
+  "projectName": "telegram-bot-sdk",
+  "projectOwner": "irazasyed",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "./community/1-team.mdx"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [],
+  "contributorsPerLine": 7,
+  "linkToUsage": true
+}

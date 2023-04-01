@@ -1,0 +1,27 @@
+{
+    "name": "TB SDK",
+    "short_name": "TB SDK",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "./",
+    "start_url": "./index.html",
+    "related_applications": [
+        {
+            "platform": "webapp",
+            "url": "https://telegram-bot-sdk.com/site.webmanifest"
+        }
+    ],
+    "icons": [
+        {
+            "src": "img/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "img/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

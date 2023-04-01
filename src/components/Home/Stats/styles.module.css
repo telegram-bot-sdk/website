@@ -1,0 +1,96 @@
+:root {
+    --tbs-page-width: 1200px;
+    --tbs-space-gap: 24px;
+    --tbs-page-margin: var(--tbs-space-gap);
+    --tbs-page-width-with-margin: calc(var(--tbs-page-width) + calc(2 * var(--tbs-page-margin)));
+
+    --accents-1: #fafafa;
+    --accents-2: #eaeaea;
+    --accents-5: #444;
+    --tbs-foreground: #fff;
+    --tbs-gap: var(--tbs-space-gap);
+    --descColor: var(--accents-5);
+    --highlightColor: var(--tbs-foreground);
+    --bkColor: transparent;
+    --borderColor: var(--accents-2);
+
+    --tbs-text-gradient: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 80%, rgba(0, 0, 0, 0.8) 100%);
+
+    --tbs-container-bg: #fafafa;
+    --tbs-container-gradient: var(--tbs-container-bg);
+}
+
+[data-theme='dark'] {
+    --accents-1: #111;
+    --accents-2: #333;
+    --accents-5: #888;
+    --tbs-container-bg: #070c1aa1;
+    --tbs-container-gradient: linear-gradient(to right, #0b0d1985, #070c1aa1);
+    --tbs-text-gradient: linear-gradient(180deg,#fff,hsla(0,0%,100%,.75));
+}
+
+.statContainer {
+    margin: 2rem 0;
+    background: var(--tbs-container-bg);
+    background: var(--tbs-container-gradient);
+    position: relative;
+}
+
+.statSection {
+    margin: 0 auto;
+    max-width: var(--tbs-page-width-with-margin);
+    padding: var(--tbs-gap) 0;
+    background-color: var(--bkColor,var(--tbs-background));
+}
+
+.statStack {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.stat {
+    border-right: 1px solid var(--borderColor);
+    padding: 0 33px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.statName {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--descColor, var(--tbs-foreground));
+}
+
+.statNumber {
+    font-size: calc(58px + (60 - 58) * ((100vw - 500px) / (1440 - 320)));
+    line-height: 1.14em;
+    letter-spacing: -.05em;
+    font-weight: 700;
+    color: var(--highlightColor,var(--tbs-foreground));
+    margin: 0;
+    background: var(--tbs-text-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 960px) {
+    .statStack {
+        flex-direction: column;
+    }
+
+    .statStack .stat {
+        margin: 20px 0;
+        padding: 0;
+        border: none;
+    }
+}
