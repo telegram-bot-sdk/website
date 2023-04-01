@@ -13,13 +13,9 @@ const isCFPages = !!parseInt(process.env.CF_PAGES || '0');
 
 const isDeployPreview = isCFPages && process.env.CONTEXT === 'preview';
 
-// Used to debug production build issues faster
-const isBuildFast = !!parseInt(process.env.BUILD_FAST || '0');
-
 // Special deployment for staging locales until they get enough translations
-// https://telegram-bot-sdk-i18n-staging.vercel.app/
+// https://telegram-bot-sdk-i18n-staging.pages.dev/
 const isI18nStaging = process.env.I18N_STAGING === 'true';
-const isVersioningDisabled = !!parseInt(process.env.DISABLE_VERSIONING || '0') || isI18nStaging;
 
 const baseUrl = process.env.BASE_URL ?? '/';
 const defaultLocale = 'en';
@@ -233,34 +229,21 @@ const config = {
             const nextVersionDocsDirPath = 'docs';
             return `https://github.com/${GITHUB_PATHS.WEBSITE}/edit/main/${nextVersionDocsDirPath}/${docPath}`;
           },
-          disableVersioning: isVersioningDisabled,
           lastVersion: isDev || isDeployPreview ? 'current' : undefined,
-          onlyIncludeVersions: (() => {
-            if (isBuildFast) {
-              return ['current'];
-            } else if (
-              !isVersioningDisabled &&
-              (isDev || isDeployPreview)
-            ) {
-              return ['current', ...versions];
-            }
-
-            return undefined;
-          })(),
           versions: {
             current: {
               label: 'Next 🚧',
               noIndex: true,
             },
-            // '3.x': {
-            //   noIndex: true,
-            // },
-            // '2.x': {
-            //   noIndex: true,
-            // },
-            // '1.x': {
-            //   noIndex: true,
-            // },
+            '3.x': {
+              noIndex: false,
+            },
+            '2.x': {
+              noIndex: true,
+            },
+            '1.x': {
+              noIndex: true,
+            },
           },
         },
         blog: {
