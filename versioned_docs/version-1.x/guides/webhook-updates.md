@@ -1,4 +1,4 @@
-import { CodeTabs, TabPHP, TabLaravel } from '@site/src/components/CodeTabs';
+import { CodeTabs, TabItem } from '@site/src/components/CodeTabs';
 
 # Webhook & Updates
 
@@ -17,7 +17,7 @@ If you'd like to make sure that the Webhook request comes from Telegram, we reco
 See [setWebhook](https://core.telegram.org/bots/api#setwebhook) docs for a list of supported parameters and other info.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $response = $telegram->setWebhook('https://example.com/<token>/webhook');
@@ -26,8 +26,8 @@ $response = $telegram->setWebhook('https://example.com/<token>/webhook');
 $response = $telegram->setWebhook('https://example.com/<token>/webhook', '/path/to/public_key_certificate.pub');
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 ```php
 // Don't forget to setup a POST route in your Laravel Project.
@@ -38,7 +38,7 @@ $response = Telegram::setWebhook('https://example.com/<token>/webhook');
 $response = Telegram::setWebhook('https://example.com/<token>/webhook', '/path/to/public_key_certificate.pub');
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 :::info Notes
@@ -52,14 +52,14 @@ $response = Telegram::setWebhook('https://example.com/<token>/webhook', '/path/t
 Once you set the webhook, You can then use the below function to retrieve the updates that are sent to your Webhook URL. The function returns an array of `Update` objects.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $updates = $telegram->getWebhookUpdates();
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 ```php
 // Put this inside the POST route /<token>/webhook or POST Controller
@@ -73,7 +73,7 @@ Route::post('/<token>/webhook', function () {
 });
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 ## Removing Webhook
@@ -81,21 +81,21 @@ Route::post('/<token>/webhook', function () {
 To remove a webhook (if it was set before).
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $response = $telegram->removeWebhook();
 ```
 
-</TabPHP>
+</TabItem>
 
-<TabLaravel>
+<TabItem value="laravel">
 
 ```php
 $response = Telegram::removeWebhook();
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 ## Getting Updates Manually
@@ -106,21 +106,21 @@ See [getUpdates](https://core.telegram.org/bots/api#getupdates
 ) docs for a list of supported parameters and other info.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $response = $telegram->getUpdates();
 ```
 
-</TabPHP>
+</TabItem>
 
-<TabLaravel>
+<TabItem value="laravel">
 
 ```php
 $response = Telegram::getUpdates();
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 :::info Notes

@@ -1,4 +1,4 @@
-import { CodeTabs, TabPHP, TabLaravel } from '@site/src/components/CodeTabs';
+import { CodeTabs, TabItem } from '@site/src/components/CodeTabs';
 
 # Commands System
 
@@ -100,7 +100,7 @@ The first step is to register our commands after we create one.
 In order to register a single command, we can make use of `addCommand()` method which supports either the command object or full path to the command itself and it'll automatically initialize it behind the scenes.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $telegram->addCommand(Telegram\Bot\Commands\HelpCommand::class);
@@ -111,8 +111,8 @@ $command = new Telegram\Bot\Commands\HelpCommand();
 $telegram->addCommand($command);
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 Registering Commands in Laravel is actually very easy. Simply open the `telegram.php` configuration file and add all your commands full path to the `commands` array and the SDK will take care of the rest.
 
@@ -139,7 +139,7 @@ $command = new Telegram\Bot\Commands\HelpCommand();
 Telegram::addCommand($command);
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 ### Multiple Commands
@@ -149,7 +149,7 @@ To register multiple commands, You can pass an array with all the commands that 
 Example:
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $telegram->addCommands([
@@ -159,8 +159,8 @@ $telegram->addCommands([
 ]);
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 ```php
 Telegram::addCommands([
@@ -170,7 +170,7 @@ Telegram::addCommands([
 ]);
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 :::note
@@ -189,15 +189,15 @@ Now to handle inbound commands, You have to use the new method called `commandsH
 Here's an example used with a Webhook registered:
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php title="webhook.php"
 $update = $telegram->commandsHandler(true);
 ```
 
-</TabPHP>
+</TabItem>
 
-<TabLaravel>
+<TabItem value="laravel">
 
 ```php
 Route::post('/<token>/webhook', function () {
@@ -211,7 +211,7 @@ Route::post('/<token>/webhook', function () {
 });
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 The method accepts a boolean value, Defaults to `false` which means the commands should manually be processed using `getUpdates()` method. Set it to `true` to process incoming updates sent from Telegram to your Webhook. The commands handler system will go through the incoming Update object to see if there is any command that matches the registered once and process them accordingly.
@@ -219,21 +219,21 @@ The method accepts a boolean value, Defaults to `false` which means the commands
 Here's an example with long polling updates:
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $update = $telegram->commandsHandler(false, ['timeout' => 30]);
 ```
 
-</TabPHP>
+</TabItem>
 
-<TabLaravel>
+<TabItem value="laravel">
 
 ```php
 $update = Telegram::commandsHandler(false, ['timeout' => 30]);
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 Commands Handler method will always return an Update object (Whether it processes the command or not), so you can use it to process further or for anything.

@@ -1,4 +1,4 @@
-import { CodeTabs, TabPHP, TabLaravel } from '@site/src/components/CodeTabs';
+import { CodeTabs, TabItem } from '@site/src/components/CodeTabs';
 
 # Available Methods & Examples
 
@@ -11,22 +11,22 @@ The library supports all the methods listed on Telegram Bot API docs [page](http
 See [sendMessage](https://core.telegram.org/bots/api#sendmessage) docs for a list of supported parameters and other info.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $response = $telegram->sendMessage('CHAT_ID', 'Hello World');
 $messageId = $response->getMessageId();
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 ```php
 $response = Telegram::sendMessage('CHAT_ID', 'Hello World');
 $messageId = $response->getMessageId();
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 ## forwardMessage - Forward a Message
@@ -34,22 +34,22 @@ $messageId = $response->getMessageId();
 See [forwardMessage](https://core.telegram.org/bots/api#forwardmessage) docs for a list of supported parameters and other info.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $response = $telegram->forwardMessage('CHAT_ID', 'FROM_CHAT_ID', 'MESSAGE_ID');
 $messageId = $response->getMessageId();
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 ```php
 $response = Telegram::forwardMessage('CHAT_ID', 'FROM_CHAT_ID', 'MESSAGE_ID');
 $messageId = $response->getMessageId();
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 ## sendPhoto - Send a Photo
@@ -57,22 +57,22 @@ $messageId = $response->getMessageId();
 See [sendPhoto](https://core.telegram.org/bots/api#sendphoto) docs for a list of supported parameters and other info.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $response = $telegram->sendPhoto('CHAT_ID', 'path/to/photo.jpg', 'Some caption');
 $messageId = $response->getMessageId();
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 ```php
 $response = Telegram::sendPhoto('CHAT_ID', 'path/to/photo.jpg', 'Some caption');
 $messageId = $response->getMessageId();
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 ## sendChatAction - Send a Chat Action
@@ -80,22 +80,22 @@ $messageId = $response->getMessageId();
 See [sendChatAction](https://core.telegram.org/bots/api#sendchataction) docs for a list of supported actions and other info.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $response = $telegram->sendChatAction('CHAT_ID', 'typing');
 $messageId = $response->getMessageId();
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 ```php
 $response = Telegram::sendChatAction('CHAT_ID', 'typing');
 $messageId = $response->getMessageId();
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 There is also a helper method for supplying the chat action. This is especially useful with code completion with your IDE.
@@ -109,7 +109,7 @@ $telegram->sendChatAction('CHAT_ID', Actions::RECORD_VIDEO);
 See [getUserProfilePhotos](https://core.telegram.org/bots/api#getuserprofilephotos) docs for a list of supported parameters and other info.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $response = $telegram->getUserProfilePhotos('USER_ID');
@@ -118,8 +118,8 @@ $photos_count = $response->getTotalCount();
 $photos = $response->getPhotos();
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 ```php
 $response = Telegram::getUserProfilePhotos('USER_ID');
@@ -128,7 +128,7 @@ $photos_count = $response->getTotalCount();
 $photos = $response->getPhotos();
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 ## getUpdates - Get Updates
@@ -136,19 +136,19 @@ $photos = $response->getPhotos();
 See [getUpdates](https://core.telegram.org/bots/api#getupdates) docs for a list of supported parameters and other info.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $updates = $telegram->getUpdates();
 ```
 
-</TabPHP>
+</TabItem>
 
-<TabLaravel>
+<TabItem value="laravel">
 
 ```php
 $updates = Telegram::getUpdates();
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
