@@ -1,5 +1,4 @@
-import CodeTabs from '@site/src/components/CodeTabs';
-import TabItem from '@theme/TabItem';
+import { CodeTabs, TabPHP, TabLaravel } from '@site/src/components/CodeTabs';
 
 # Asynchronous Requests
 
@@ -11,7 +10,7 @@ However, an asynchronous non-blocking request can be sent by calling `setAsyncRe
 When building the API request, just make a call to the `setAsyncRequest` method passing `true`. Now making a request won't block the execution of the script. Similarly, if you want to do the other way around, just pass `false` (Make a specific API call a synchronous request).
 
 <CodeTabs>
-<TabItem value="standalone">
+<TabPHP>
 
 ```php
 $telegram
@@ -19,15 +18,15 @@ $telegram
     ->sendPhoto('CHAT_ID', 'path/to/photo.jpg');
 ```
 
-</TabItem>
-<TabItem value="laravel">
+</TabPHP>
+<TabLaravel>
 
 ```php
 Telegram::setAsyncRequest(true)
     ->sendPhoto('CHAT_ID', 'path/to/photo.jpg');
 ```
 
-</TabItem>
+</TabLaravel>
 </CodeTabs>
 
 ## Make All API Requests Async

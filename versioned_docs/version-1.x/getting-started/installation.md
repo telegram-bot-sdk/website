@@ -1,5 +1,4 @@
-import CodeTabs from '@site/src/components/CodeTabs';
-import TabItem from '@theme/TabItem';
+import { CodeTabs, TabPHP, TabLaravel } from '@site/src/components/CodeTabs';
 
 # Installation
 
@@ -44,7 +43,7 @@ Returns basic information about the bot in form of a User object.
 See [getMe](https://core.telegram.org/bots/api#getme) docs for more details.
 
 <CodeTabs>
-<TabItem value="standalone">
+<TabPHP>
 
 ```php
 $response = $telegram->getMe();
@@ -54,9 +53,9 @@ $firstName = $response->getFirstName();
 $username = $response->getUsername();
 ```
 
-</TabItem>
+</TabPHP>
 
-<TabItem value="laravel">
+<TabLaravel>
 
 ```php
 $response = Telegram::getMe();
@@ -66,5 +65,5 @@ $firstName = $response->getFirstName();
 $username = $response->getUsername();
 ```
 
-</TabItem>
+</TabLaravel>
 </CodeTabs>
