@@ -1,0 +1,64 @@
+:root {
+  --menu-color: var(--ifm-menu-color);
+
+  --php-logo-color: #4F5B93;
+  --laravel-logo-color: #ff2d20;
+  --selected-tab-color: #fff;
+
+  --selected-tab-php-border-color: var(--php-logo-color);
+  --selected-tab-laravel-border-color: var(--laravel-logo-color);
+
+  --logo-size: 24px;
+  --php-logo-size: 32px;
+
+  --inactive-tab-opacity: 0.8;
+  --selected-tab-opacity: 1;
+}
+
+.codeTabLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--menu-color);
+  opacity: var(--inactive-tab-opacity);
+}
+
+.codeTabLogo {
+  display: block;
+  height: var(--logo-size);
+  width: var(--logo-size);
+}
+
+.logoPhp {
+  width: var(--php-logo-size);
+}
+
+[data-theme="dark"] .logoPhp {
+  fill: var(--menu-color);
+}
+
+.logoLaravel {
+  fill: var(--laravel-logo-color);
+}
+
+[data-theme="dark"] .logoLaravel {
+  fill: var(--selected-tab-color);
+}
+
+[data-theme="dark"] li[role='tab'][aria-selected='true'] .codeTabLabel,
+[data-theme="dark"] li[role='tab'][aria-selected='true'] .logoPhp {
+  color: var(--selected-tab-color);
+  fill: var(--selected-tab-color);
+}
+
+li[role='tab'][aria-selected='true'] .codeTabLabel {
+  opacity: var(--selected-tab-opacity);
+}
+
+.php[aria-selected='true'] {
+  border-bottom-color: var(--selected-tab-php-border-color);
+}
+
+.laravel[aria-selected='true'] {
+  border-bottom-color: var(--selected-tab-laravel-border-color);
+}

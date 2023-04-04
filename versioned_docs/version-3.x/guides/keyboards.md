@@ -1,5 +1,4 @@
-import CodeTabs from '@site/src/components/CodeTabs';
-import TabItem from '@theme/TabItem';
+import { CodeTabs, TabPHP, TabLaravel } from '@site/src/components/CodeTabs';
 
 # Keyboards
 
@@ -113,7 +112,7 @@ See [ReplyKeyboardMarkup](https://core.telegram.org/bots/api#replykeyboardmarkup
 Example:
 
 <CodeTabs>
-<TabItem value="standalone">
+<TabPHP>
 
 
 ```php
@@ -139,8 +138,8 @@ $response = $telegram->sendMessage([
 $messageId = $response->getMessageId();
 ```
 
-</TabItem>
-<TabItem value="laravel">
+</TabPHP>
+<TabLaravel>
 
 
 ```php
@@ -166,7 +165,7 @@ $response = Telegram::sendMessage([
 $messageId = $response->getMessageId();
 ```
 
-</TabItem>
+</TabLaravel>
 </CodeTabs>
 
 ## Reply Keyboard Hide
@@ -178,7 +177,7 @@ See [ReplyKeyboardHide](https://core.telegram.org/bots/api#replykeyboardhide) do
 If called with no parameters, the `selective` option defaults to `false`.
 
 <CodeTabs>
-<TabItem value="standalone">
+<TabPHP>
 
 ```php
 $reply_markup = $telegram->replyKeyboardHide();
@@ -190,8 +189,8 @@ $response = $telegram->sendMessage([
 ]);
 ```
 
-</TabItem>
-<TabItem value="laravel">
+</TabPHP>
+<TabLaravel>
 
 ```php
 $reply_markup = Telegram::replyKeyboardHide();
@@ -203,7 +202,7 @@ $response = Telegram::sendMessage([
 ]);
 ```
 
-</TabItem>
+</TabLaravel>
 </CodeTabs>
 
 ## Force Reply
@@ -214,7 +213,7 @@ See [ForceReply](https://core.telegram.org/bots/api#forcereply) docs for more in
 If called with no parameters, the `selective` option defaults to `false`.
 
 <CodeTabs>
-<TabItem value="standalone">
+<TabPHP>
 
 ```php
 $reply_markup = $telegram->forceReply();
@@ -226,8 +225,8 @@ $response = $telegram->sendMessage([
 ]);
 ```
 
-</TabItem>
-<TabItem value="laravel">
+</TabPHP>
+<TabLaravel>
 
 ```php
 $reply_markup = Telegram::forceReply();
@@ -239,5 +238,5 @@ $response = Telegram::sendMessage([
 ]);
 ```
 
-</TabItem>
+</TabLaravel>
 </CodeTabs>
