@@ -1,4 +1,4 @@
-import { CodeTabs, TabPHP, TabLaravel } from '@site/src/components/CodeTabs';
+import { CodeTabs, TabItem } from '@site/src/components/CodeTabs';
 
 # Keyboards
 
@@ -21,7 +21,7 @@ See [ReplyKeyboardMarkup](https://core.telegram.org/bots/api#replykeyboardmarkup
 
 Example:
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $keyboard = [
@@ -38,8 +38,8 @@ $response = $telegram->sendMessage('CHAT_ID', 'Hello World', false, null, $reply
 $messageId = $response->getMessageId();
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 ```php
 $keyboard = [
@@ -56,7 +56,7 @@ $response = Telegram::sendMessage('CHAT_ID', 'Hello World', false, null, $reply_
 $messageId = $response->getMessageId();
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 ## Reply Keyboard Hide
@@ -67,7 +67,7 @@ See [ReplyKeyboardHide](https://core.telegram.org/bots/api#replykeyboardhide) do
 If called with no parameters, the `selective` option defaults to `false`.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $reply_markup = $telegram->replyKeyboardHide();
@@ -75,8 +75,8 @@ $reply_markup = $telegram->replyKeyboardHide();
 $response = $telegram->sendMessage('CHAT_ID', 'Hello World', false, null, $reply_markup);
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 ```php
 $reply_markup = Telegram::replyKeyboardHide();
@@ -84,7 +84,7 @@ $reply_markup = Telegram::replyKeyboardHide();
 $response = Telegram::sendMessage('CHAT_ID', 'Hello World', false, null, $reply_markup);
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>
 
 ## Force Reply
@@ -95,7 +95,7 @@ See [ForceReply](https://core.telegram.org/bots/api#forcereply) docs for more in
 If called with no parameters, the `selective` option defaults to `false`.
 
 <CodeTabs>
-<TabPHP>
+<TabItem value="php">
 
 ```php
 $reply_markup = $telegram->forceReply();
@@ -103,8 +103,8 @@ $reply_markup = $telegram->forceReply();
 $response = $telegram->sendMessage('CHAT_ID', 'Hello World', false, null, $reply_markup);
 ```
 
-</TabPHP>
-<TabLaravel>
+</TabItem>
+<TabItem value="laravel">
 
 ```php
 $reply_markup = Telegram::forceReply();
@@ -112,5 +112,5 @@ $reply_markup = Telegram::forceReply();
 $response = Telegram::sendMessage('CHAT_ID', 'Hello World', false, null, $reply_markup);
 ```
 
-</TabLaravel>
+</TabItem>
 </CodeTabs>

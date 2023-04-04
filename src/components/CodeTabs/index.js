@@ -1,12 +1,12 @@
+import React from 'react';
 import Tabs from '@theme-original/Tabs';
 import TabItem from '@theme/TabItem';
-import React from 'react';
 import clsx from 'clsx';
 import LaravelLogo from '/img/laravel.svg';
 import PHPLogo from '/img/php.svg';
 import styles from './styles.module.css';
 
-const logos = {
+const languages = {
   php: { label: 'Standalone', logo: <PHPLogo className={clsx(styles.codeTabLogo, styles.logoPhp)} /> },
   laravel: { label: 'Laravel', logo: <LaravelLogo className={clsx(styles.codeTabLogo, styles.logoLaravel)} /> },
 };
@@ -14,36 +14,47 @@ const logos = {
 function Logo({ name }) {
   return (
     <div className={styles.codeTabLabel}>
-      {logos[name].logo}
-      <span>{logos[name].label}</span>
+      {languages[name].logo}
+      <span>{languages[name].label}</span>
     </div>
   );
 }
 
-export function CodeTabs(props) {
-  const values = Object.keys(logos).map(name => ({
+function CodeTabs(props) {
+  const values = Object.keys(languages).map(name => ({
     label: <Logo name={name} />,
     value: name,
     attributes: { className: styles[name] },
   }));
 
   return (
-    <Tabs groupId="language" defaultValue="php" queryString values={values} {...props} />
+    <Tabs groupId='language' defaultValue='php' queryString key='language' values={values} {...props} />
   );
 }
 
-export function TabPHP({ children }) {
+function TabPHP({ children }) {
   return (
-    <TabItem value="php">
+    <TabItem value='php'>
+
       {children}
+
     </TabItem>
   );
 }
 
-export function TabLaravel({ children }) {
+function TabLaravel({ children }) {
   return (
-    <TabItem value="laravel">
+    <TabItem value='laravel'>
+
       {children}
+
     </TabItem>
   );
+}
+
+export {
+    CodeTabs,
+    TabPHP,
+    TabLaravel,
+    TabItem,
 }
