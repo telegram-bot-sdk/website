@@ -473,8 +473,8 @@ const config = {
         ],
       },
       algolia: {
-        appId: 'VON1CC1MKK',
-        apiKey: '91e3fd4489dc938711dcf349520c157f',
+        appId: 'L4ICB0MOQG',
+        apiKey: '3e3d11f655b7eda59f531e8be4d2a6a1',
         indexName: 'telegram-bot-sdk',
         replaceSearchResultPathname:
           isDev || isDeployPreview
