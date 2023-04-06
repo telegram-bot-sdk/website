@@ -1,4 +1,4 @@
-import { CodeTabs, TabItem } from '@site/src/components/CodeTabs';
+import CodeTabs from '@site/src/components/CodeTabs';
 
 # Webhook & Updates
 
@@ -23,7 +23,7 @@ See [setWebhook](https://core.telegram.org/bots/api#setwebhook) docs for a list 
 ### Setting Webhook
 
 <CodeTabs>
-<TabItem value="php">
+<>
 
 ```php
 $response = $telegram->setWebhook(['url' => 'https://example.com/<token>/webhook']);
@@ -35,8 +35,9 @@ $response = $telegram->setWebhook([
 ]);
 ```
 
-</TabItem>
-<TabItem value="laravel">
+</>
+
+<>
 
 ```php
 $response = Telegram::setWebhook(['url' => 'https://example.com/<token>/webhook']);
@@ -64,7 +65,7 @@ protected $except = [
 ];
 ```
 
-</TabItem>
+</>
 </CodeTabs>
 
 :::info Notes
@@ -83,14 +84,15 @@ If you're having any trouble setting up webhooks, please check out this [amazing
 Once you set the webhook, You can then use the below function to retrieve the updates that are sent to your Webhook URL. The function returns an array of `Update` objects.
 
 <CodeTabs>
-<TabItem value="php">
+<>
 
 ```php
 $updates = $telegram->getWebhookUpdate();
 ```
 
-</TabItem>
-<TabItem value="laravel">
+</>
+
+<>
 
 ```php
 // Put this inside the POST route /<token>/webhook or POST Controller
@@ -104,7 +106,7 @@ Route::post('/<token>/webhook', function () {
 });
 ```
 
-</TabItem>
+</>
 </CodeTabs>
 
 ### Removing Webhook
@@ -112,21 +114,21 @@ Route::post('/<token>/webhook', function () {
 To remove a webhook (if it was set before).
 
 <CodeTabs>
-<TabItem value="php">
+<>
 
 ```php
 $response = $telegram->removeWebhook();
 ```
 
-</TabItem>
+</>
 
-<TabItem value="laravel">
+<>
 
 ```php
 $response = Telegram::removeWebhook();
 ```
 
-</TabItem>
+</>
 </CodeTabs>
 
 ## Via Long Polling
@@ -137,21 +139,21 @@ See [getUpdates](https://core.telegram.org/bots/api#getupdates
 ) docs for a list of supported parameters and other info.
 
 <CodeTabs>
-<TabItem value="php">
+<>
 
 ```php
 $response = $telegram->getUpdates();
 ```
 
-</TabItem>
+</>
 
-<TabItem value="laravel">
+<>
 
 ```php
 $response = Telegram::getUpdates();
 ```
 
-</TabItem>
+</>
 </CodeTabs>
 
 :::info Notes

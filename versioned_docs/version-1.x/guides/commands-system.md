@@ -1,4 +1,4 @@
-import { CodeTabs, TabItem } from '@site/src/components/CodeTabs';
+import CodeTabs from '@site/src/components/CodeTabs';
 
 # Commands System
 
@@ -144,7 +144,7 @@ To register multiple commands, You can pass an array with all the commands that 
 Example:
 
 <CodeTabs>
-<TabItem value="php">
+<>
 
 ```php
 $telegram->addCommands([
@@ -154,8 +154,9 @@ $telegram->addCommands([
 ]);
 ```
 
-</TabItem>
-<TabItem value="laravel">
+</>
+
+<>
 
 ```php
 Telegram::addCommands([
@@ -165,7 +166,7 @@ Telegram::addCommands([
 ]);
 ```
 
-</TabItem>
+</>
 </CodeTabs>
 
 :::note
@@ -181,15 +182,15 @@ Now to handle inbound commands, You have to use the new method called `commandsH
 Here's an example used with a Webhook registered:
 
 <CodeTabs>
-<TabItem value="php">
+<>
 
 ```php title="webhook.php"
 $update = $telegram->commandsHandler(true);
 ```
 
-</TabItem>
+</>
 
-<TabItem value="laravel">
+<>
 
 ```php
 Route::post('/<token>/webhook', function () {
@@ -203,7 +204,7 @@ Route::post('/<token>/webhook', function () {
 });
 ```
 
-</TabItem>
+</>
 </CodeTabs>
 
 The method accepts a boolean value, Defaults to `false` which means the commands should manually be processed using `getUpdates()` method. Set it to `true` to process incoming updates sent from Telegram to your Webhook. The commands handler system will go through the incoming Update object to see if there is any command that matches the registered once and process them accordingly.

@@ -1,11 +1,11 @@
 # 📋 Configuration Guide
 
-import { CodeTabs, TabItem } from '@site/src/components/CodeTabs';
+import CodeTabs from '@site/src/components/CodeTabs';
 
 Before you can start building a Telegram Bot, you need to configure Telegram Bot SDK with your Bot Token that was provided by BotFather. Once you do that, you'll get access to all the available Bot API Methods to make requests to the Telegram Bot API.
 
 <CodeTabs>
-<TabItem value="php">
+<>
 
 Here is how you can quickly set up and initialize a single bot operation:
 
@@ -45,14 +45,14 @@ $response = $telegram->bot('mybot')->getMe();
 FYI, `$config` can get large when handling multiple configurations. To avoid problems, create a dedicated file like `config.php` and require it in your code to return the array separately. You can use SDK's Laravel [config](https://github.com/irazasyed/telegram-bot-sdk/blob/3.x/src/Laravel/config/telegram.php) file as a starting point.
 :::
 
-</TabItem>
-<TabItem value="laravel">
+</>
+<>
 
 Open the `config/telegram.php` configuration file and set the `bot_token` with your Telegram Bot Token or you can also set an environment variable `TELEGRAM_BOT_TOKEN` with the appropriate value.
 
 In Laravel, you don't have to initilize the SDK as its taken care for you in the service provider and ships with multibot support by default.
 
-</TabItem>
+</>
 </CodeTabs>
 
 You can now get started to write your Telegram Bot.
