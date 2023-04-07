@@ -27,14 +27,6 @@ export default function CodeTabs(props) {
     attributes: { className: styles[name] },
   }));
 
-  // const tabItemss = Object.keys(languages).map((name, index) => {
-  //   return (
-  //     <TabItem value={name}>
-  //       {props.children[index]}
-  //     </TabItem>
-  //   );
-  // });
-
   const tabItems = Children.map(props.children, (child, index) => {
     const language = Object.keys(languages)[index];
 
