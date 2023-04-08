@@ -412,7 +412,7 @@ const config = {
                 href: 'https://github.com/telegram-bot-sdk/awesome-telegram-bots',
               },
               {
-                label: 'GitHub',
+                label: 'GitHub (Current)',
                 href: `https://github.com/${GITHUB_PATHS.REPO}`,
               },
               {
