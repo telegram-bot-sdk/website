@@ -32,7 +32,9 @@ export default function CodeTabs(props) {
 
     return (
       <TabItem value={language}>
+
         {child}
+
       </TabItem>
     );
   });
