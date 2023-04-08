@@ -415,6 +415,10 @@ const config = {
                 label: 'GitHub',
                 href: `https://github.com/${GITHUB_PATHS.REPO}`,
               },
+              {
+                label: 'GitHub (3.x)',
+                href: `https://github.com/${GITHUB_PATHS.FORMER_REPO}`,
+              },
             ],
           },
           {

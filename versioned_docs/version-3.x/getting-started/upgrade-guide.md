@@ -1,10 +1,10 @@
 # 🚀 Upgrade Guide
 
-## Upgrading To 3.x from 2.x
+## 🔝 Upgrading To 3.x from 2.x
 
 There are some breaking and major changes in this new version. Follow the below instructions to apply the changes.
 
-#### Upgrading Your Composer Dependency
+#### 🔄 Upgrading Your Composer Dependency
 
 To update the package in composer, fire the following command in your terminal:
 
