@@ -95,6 +95,16 @@ $response = $telegram->getMe();
 $response = Telegram::getMe();
 ```
 
+You can make use of the `Telegram\Bot\Laravel\Facades\Telegram` Facade to make API requests.
+
+Example:
+
+```php
+use Telegram\Bot\Laravel\Facades\Telegram;
+
+$response = Telegram::bot('mybot')->getMe();
+```
+
 </>
 </CodeTabs>
 
