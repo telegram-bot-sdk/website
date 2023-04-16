@@ -1,21 +1,15 @@
----
-title: Contributing
-hide_title: true
-sidebar_label: Contributing
----
-
-# Contributing Guide
+# 📖 Contributing Guide
 
 We welcome contributions to this project. Please read the following guide before posting an issue or sending in pull requests.
 Please also read our [Code of Conduct](/community/code-of-conduct) before contributing or engaging in discussions.
 
-## Issues {#issues}
+## 🐛 Issues {#issues}
 
 - **Feature requests** need to describe as thoroughly as possible and perhaps contain some info on how you would implement it.
 - **Bug reports** need to be described in detail what the problem is, how it was triggered and perhaps contain a possible solution.
 - **Questions** are free to be asked about the internals of the codebase and about the project, check out [Support](/community/support) for more details.
 
-## Pull Requests {#pull-requests}
+## 🔀 Pull Requests {#pull-requests}
 
 - **Feature requests** first need to be discussed and accepted through an issue before sending in a pull request.
 - **Bug fixes** should contain [regression tests](https://laracasts.com/lessons/regression-testing).
@@ -27,12 +21,12 @@ Please also read our [Code of Conduct](/community/code-of-conduct) before contri
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
 - **Send coherent history** - Make sure each individual commit in your pull request is meaningful.
 
-## Coding Standards {#coding-standard}
+## 👨‍💻 Coding Standards {#coding-standard}
 
 - [PSR-12 Coding Standard](https://www.php-fig.org/psr/psr-12/) will automatically be applied by Github Actions.
 - Make sure to typehint and declare return type where applicable.
 
-## Testing {#testing}
+## 🧪 Testing {#testing}
 
 All tests can be run with the following command.
 
@@ -40,4 +34,4 @@ All tests can be run with the following command.
 $ composer test
 ```
 
-**Happy coding**!
+**Happy coding** 🎉

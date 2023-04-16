@@ -6,7 +6,7 @@ All the methods listed on [Telegram Bot API](https://core.telegram.org/bots/api)
 
 ## Standalone Setup
 
-In order to use the library in your project, You need to install the SDK with Composer. Refer the [Getting Started](doc:getting-started) page for more details on how to install with Composer and autoload in your project.
+In order to use the library in your project, You need to install the SDK with Composer. Refer the [Introduction](../intro.md) page for more details on how to install with Composer and autoload in your project.
 
 ## Initialize Library
 

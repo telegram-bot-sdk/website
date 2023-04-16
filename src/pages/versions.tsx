@@ -29,14 +29,14 @@ const docsPluginId = undefined; // Default docs plugin instance
 
 function DocumentationLabel() {
   return (
-    <Translate id="versionsPage.versionEntry.link">Documentation</Translate>
+    <Translate id="versionsPage.versionEntry.link">📖 Documentation</Translate>
   );
 }
 
 function ReleaseNotesLabel() {
   return (
     <Translate id="versionsPage.versionEntry.releaseNotes">
-      Release Notes
+      📝 Release Notes
     </Translate>
   );
 }
@@ -85,7 +85,7 @@ export default function Version(): JSX.Element {
       <main className="container margin-vert--lg">
         <Heading as="h1">
           <Translate id="versionsPage.title">
-            Telegram Bot SDK documentation versions
+            🗄️ Telegram Bot SDK documentation versions
           </Translate>
         </Heading>
 

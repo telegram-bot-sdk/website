@@ -1,8 +1,8 @@
 ---
-title: "License"
+title: 📃 License
 ---
 
-# The BSD 3-Clause License
+# 📃 The BSD 3-Clause License
 
 Copyright (c) Irfaq Syed
 All rights reserved.
@@ -34,6 +34,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ----
 
-## Disclaimer
+## 📜 Disclaimer {#disclaimer}
 
 The Telegram Bot SDK is a third-party library and is not associated with, endorsed by, or affiliated with Telegram or its products. The use of the name 'Telegram' is solely for descriptive purposes to indicate that this SDK is intended for use with the Telegram messaging platform. Telegram is a registered trademark of Telegram FZ LLC, the parent company of Telegram.org.

@@ -44,7 +44,7 @@ function processSection(section) {
     .replace(/\n## .*/, '')
     .trim();
 
-  let authors = content.match(/(?<=@)(\w+)/g) || [];
+  let authors = content.match(/(?<=@)[\w-]+/g) || [];
   authors.unshift('irazasyed');
 
   if (authors) {
@@ -62,7 +62,7 @@ function processSection(section) {
     });
   }
 
-  content = content.replace(/@(\w+)/g, '[@$1](https://github.com/$1)'); // Replace usernames with profile URLs.
+  content = content.replace(/@([\w-]+)/g, '[@$1](https://github.com/$1)'); // Replace usernames with profile URLs.
 
   let hour = 20;
   const date = title.match(/\d{4}-\d{2}-\d{2}/)[0];

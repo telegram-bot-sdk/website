@@ -1,10 +1,10 @@
 ---
-title: Code of Conduct
+title: 👮 Code of Conduct
 hide_title: true
-sidebar_label: Code of Conduct
+sidebar_label: 👮 Code of Conduct
 ---
 
-# Contributor Covenant Code of Conduct
+# 👮 Contributor Covenant Code of Conduct
 
 ## Our Pledge {#our-pledge}
 

@@ -5,6 +5,8 @@ sidebar_position: 1
 
 # 🛠️ Installation
 
+> This guide provides instructions for installing and setting up the Telegram Bot SDK
+
 ## 🔍 Requirements {#requirements}
 
 - 🐘 PHP 8.0 and higher

@@ -1,4 +1,4 @@
-# Canary releases
+# 🐦 Canary releases
 
 Telegram Bot SDK has a canary releases system.
 

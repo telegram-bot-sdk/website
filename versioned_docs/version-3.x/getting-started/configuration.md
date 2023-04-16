@@ -1,85 +1,22 @@
+---
+sidebar_position: 3
+---
+
 # 📋 Configuration Guide
 
 import CodeTabs from '@site/src/components/CodeTabs';
 
-Before you can start building a Telegram Bot, you need to configure Telegram Bot SDK with your Bot Token that was provided by BotFather. Once you do that, you'll get access to all the available Bot API Methods to make requests to the Telegram Bot API.
-
-<CodeTabs>
-<>
-
-Here is how you can quickly set up and initialize a single bot operation:
-
-```php
-require __DIR__.'/vendor/autoload.php';
-
-use Telegram\Bot\Api;
-
-$telegram = new Api('YOUR BOT TOKEN');
-
-// Example usage
-$response = $telegram->getMe();
-```
-
-### 🦾 Managing Multiple Bots {#managing-multiple-bots}
-
-If you want to manage multiple bots, you can take advantage of the `BotsManager` like this:
-
-```php
-use Telegram\Bot\BotsManager;
-
-$config = [
-    'bots' => [
-        'mybot' => [
-            'token' => '123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11',
-        ],
-    ]
-];
-
-$telegram = new BotsManager($config);
-
-// Example usage
-$response = $telegram->bot('mybot')->getMe();
-```
-
-:::tip
-FYI, `$config` can get large when handling multiple configurations. To avoid problems, create a dedicated file like `config.php` and require it in your code to return the array separately. You can use SDK's Laravel [config](https://github.com/irazasyed/telegram-bot-sdk/blob/3.x/src/Laravel/config/telegram.php) file as a starting point.
-:::
-
-</>
-<>
-
-Open the `config/telegram.php` configuration file and set the `token` with your Telegram Bot Token or you can also set an environment variable `TELEGRAM_BOT_TOKEN` with the appropriate value.
-
-In Laravel, you don't have to initilize the SDK as its taken care for you in the service provider and ships with multibot support by default.
-
-You can make use of the `Telegram\Bot\Laravel\Facades\Telegram` Facade to make API requests.
-
-Example:
-
-```php
-use Telegram\Bot\Laravel\Facades\Telegram;
-
-$response = Telegram::bot('mybot')->getMe();
-```
-
-</>
-</CodeTabs>
-
-You can now get started to write your Telegram Bot.
-
-Refer the below table to know more about the available options with detailed information.
-
-## 🔧 Bots Manager - Configuration Options {#bots-manager-configuration-options}
+## 🔧 Bot Manager - Configuration Options {#bot-manager-configuration-options}
 
 | Option | Type | Description |
 | --- | --- | --- |
 | [`bots`](#registering-multiple-bots) | array | You may use multiple bots at once using the manager class. Each bot that you own should be configured here. |
 | `default` | string | Here you may specify which of the bots you wish to use as your default bot for regular use. |
-| [`async_requests`](#async-requests) | bool _(optional)_ | Default: `false`. When set to True, All the requests would be made non-blocking (Async). |
-| [`http_client_handler`](#http-client-handler) | string _(optional)_ | Default: `GuzzleHttpClient`. Path to HTTP Client Handler, If you'd like to use a custom HTTP Client Handler. Should be an instance of `\Telegram\Bot\HttpClients\HttpClientInterface`. |
+| [`async_requests`](#async-requests) | bool _(optional)_ | Default: `false`. When set to `true`, All the requests would be made non-blocking (Async). |
+| [`http_client_handler`](#http-client-handler) | string _(optional)_ | Default: `GuzzleHttpClient`. Path to custom HTTP Client Handler which should be an instance of `\Telegram\Bot\HttpClients\HttpClientInterface`. |
 | [`base_bot_url`](#base-bot-url) | string _(optional)_ | If you'd like to use a custom Base Bot Url. Should be a local bot api endpoint or a proxy to the telegram api endpoint. |
 | [`resolve_command_dependencies`](#resolve-command-dependencies) | bool _(optional)_ | Default: `true` (Laravel). With the help of dependency injection container, we can easily specify dependencies in our command's constructor and have them resolved automatically, and in Laravel, it uses its IoC container by default. |
-| [`commands`](#registering-global-commands) | array _(optional)_ | If you'd like to use the SDK's built in commands handler system, you can register all the global commands here. Global commands will apply to all the bots in system and are always active.<br /><br /> The command class should extend the `Telegram\Bot\Commands\Command` class. <br /><br /> Default: The SDK registers, a `help` command which when a user sends /help will respond with a list of available commands and description. |
+| [`commands`](#registering-global-commands) | array _(optional)_ | If you'd like to use the SDK's built in commands handler system, you can register all the global commands here. Global commands will apply to all the bots in system and are always active.<br /><br /> The command class should extend the `Telegram\Bot\Commands\Command` class. <br /><br /> Default: The SDK registers, a `help` command which when a user sends `/help` will respond with a list of available commands and description or upon no commands are found. |
 | [`command_groups`](#grouping-commands) | array _(optional)_ | You can organize a set of commands into groups which can later, be re-used across all your bots. <br /><br />You can create 4 types of groups: <br /> **1.** Group using full path to command classes. <br /> **2.** Group using shared commands: Provide the key name of the shared command and the system will automatically resolve to the appropriate command. <br /> **3.** Group using other groups of commands: You can create a group which uses other groups of commands to bundle them into one group. <br /> **4.** You can create a group with a combination of 1, 2 and 3 all together in one group. |
 | [`shared_commands`](#shared-commands) | array _(optional)_ | Shared commands let you register commands that can be shared between, one or more bots across the project. <br /><br /> This will help you prevent from having to register same set of commands, for each bot over and over again and make it easier to maintain them. <br /><br /> Shared commands are not active by default, You need to use the key name to register them, individually in a group of commands or in bot commands. <br /><br /> Think of this as a central storage, to register, reuse and maintain them across all bots. |
 
@@ -101,22 +38,24 @@ You may use multiple bots at once using the bots manager class. Each bot that yo
 For example, to configure two bots named "mybot" and "anotherbot", you would use the following syntax:
 
 ```php
-'bots' => [
-    'mybot' => [
-        'token'       => '123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11',
-        'webhook_url' => 'https://domain.com/telegram/webhook',
-        'commands'    => [
-            App\Telegram\Commands\StartCommand::class,
+[
+    'bots' => [
+        'mybot' => [
+            'token'       => '123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11',
+            'webhook_url' => 'https://domain.com/telegram/webhook',
+            'commands'    => [
+                App\Telegram\Commands\StartCommand::class,
+            ],
         ],
-    ],
 
-    'anotherbot' => [
-        'token' => '654321:DEF-GHI5678jkL-mno34pqr9stu456vwx',
-        'commands' => ['admin', 'help', 'info'],
-    ],
+        'anotherbot' => [
+            'token' => '654321:DEF-GHI5678jkL-mno34pqr9stu456vwx',
+            'commands' => ['admin', 'help', 'info'],
+        ],
 
-    'default' => 'mybot'
-]
+        'default' => 'mybot'
+    ]
+];
 ```
 
 👉 In this example, `mybot` is configured with a bot token and a local command "start", while `anotherbot` is configured with a different bot token and three different commands ("admin", "help", and "info") from the shared commands array. We're also setting `mybot` as the `default` bot for regular use.
@@ -156,6 +95,16 @@ $response = $telegram->getMe();
 $response = Telegram::getMe();
 ```
 
+You can make use of the `Telegram\Bot\Laravel\Facades\Telegram` Facade to make API requests.
+
+Example:
+
+```php
+use Telegram\Bot\Laravel\Facades\Telegram;
+
+$response = Telegram::bot('mybot')->getMe();
+```
+
 </>
 </CodeTabs>
 
@@ -165,7 +114,7 @@ $response = Telegram::getMe();
 By default, all requests made with the SDK are blocking (sync), meaning that the script execution will wait for the response before continuing. You can make requests non-blocking (async) by setting the `async_requests` configuration option to `true`.
 
 ```php
-$config = [
+[
     'async_requests' => true,
     // ...
 ];
@@ -178,7 +127,7 @@ $config = [
 By default, the SDK uses the [GuzzleHttpClient](https://github.com/irazasyed/telegram-bot-sdk/blob/3.x/src/HttpClients/GuzzleHttpClient.php) an implementation of [GuzzlePHP](https://docs.guzzlephp.org/en/stable/index.html) handler. However, you can use a custom HTTP client handler by setting the `http_client_handler` configuration option to the path of the handler class. The handler class must implement the `\Telegram\Bot\HttpClients\HttpClientInterface` interface.
 
 ```php
-$config = [
+[
     'http_client_handler' => App\CustomHttpClient::class,
     // ...
 ];
@@ -191,7 +140,7 @@ $config = [
 By default, the SDK uses the official Telegram API endpoint as the base URL for all API requests. However, you can use a custom base URL by setting the `base_bot_url` configuration option to the URL of your custom endpoint, which is particularly helpful if the official endpoint is blocked in your country.
 
 ```php
-$config = [
+[
     'base_bot_url' => 'http://mycustomurl.com/api',
     // ...
 ];
@@ -223,8 +172,8 @@ $telegram->setContainer(new \Illuminate\Container\Container());
 
 In Laravel, The SDK automatically resolves dependencies for your bot commands using Laravel's IoC container by default. To disable this behavior, you can set the `resolve_command_dependencies` option to `false`.
 
-```php
-$config = [
+```php title="config/telegram.php"
+[
     'resolve_command_dependencies' => false,
     // ...
 ];
@@ -249,6 +198,10 @@ Global commands are commands that are registered for all bots in the system and 
 ```
 
 👉 In this example, we are registering two commands: `App\Telegram\Commands\HelpCommand` and `App\Telegram\Commands\StartCommand`. These commands will be active for ALL bots in the system.
+
+:::info
+For a more comprehensive understanding of commands, please refer to the [Commands System](../guides/commands-system.md) guide, which provides detailed information on the topic.
+:::
 
 ## 👨‍💻 Grouping Commands [Advanced] {#grouping-commands}
 
@@ -384,7 +337,7 @@ Think of this as a central storage, to register, reuse and maintain them across 
 You can register commands that can be shared between multiple bots by using the `shared_commands` option in the config file.
 
 ```php
-$config = [
+[
     'shared_commands' => [
         'admin' => App\Telegram\Commands\AdminCommand::class,
         'info' => App\Telegram\Commands\InfoCommand::class,

@@ -303,18 +303,18 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Docs',
+            label: '📖 Docs',
           },
-          { to: '/blog', label: 'Blog', position: 'left' },
+          { to: '/blog', label: '📝 Blog', position: 'left' },
           {
             to: '/community/support',
-            label: 'Community',
+            label: '👥 Community',
             position: 'left',
             activeBaseRegex: `/community/`,
           },
           {
             href: 'https://github.com/telegram-bot-sdk/awesome-telegram-bots',
-            label: 'Showcase Bots',
+            label: '🤖 Showcase Bots',
             position: 'left'
           },
           {
@@ -328,7 +328,7 @@ const config = {
               },
               {
                 to: '/versions',
-                label: 'All versions',
+                label: '🗄️ All versions',
               },
             ],
           },
@@ -339,7 +339,7 @@ const config = {
               {
                 // Create translation issue.
                 to: `https://github.com/${GITHUB_PATHS.WEBSITE}/issues/123456`,
-                label: 'Help us translate',
+                label: '🌐 Help us translate',
               },
             ],
           },
@@ -355,85 +355,89 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Learn',
+            title: '📚 Learn',
             items: [
               {
-                label: 'Introduction',
+                label: '👋 Introduction',
                 to: '/docs',
               },
               {
-                label: 'Installation',
+                label: '🛠️ Installation',
                 to: 'docs/getting-started/installation',
               },
               {
-                label: 'Upgrade Guide',
-                to: 'docs/getting-started/upgrade-guide',
+                label: '🔺 Upgrade Guide',
+                to: 'docs/upgrade-guide',
               },
               {
-                label: 'Blog',
+                label: '📝 Blog',
                 to: '/blog',
               },
             ],
           },
           {
-            title: 'Community',
+            title: '👥 Community',
             items: [
               {
-                label: 'Support',
+                label: '🤝 Support',
                 to: '/community/support',
               },
               {
-                label: 'Awesome Resources',
+                label: '👌 Awesome Resources',
                 to: '/community/resources',
               },
               {
-                label: 'Contributing Guide',
+                label: '📖 Contributing Guide',
                 to: '/community/contributing',
               },
               {
-                label: 'PHP Chat on Slack',
+                label: '💬 PHP Chat on Slack',
                 href: 'https://phpchat.co',
               },
               {
-                label: 'PHP Chat on Telegram',
+                label: '🐘 PHP Chat on Telegram',
                 href: 'https://t.me/PHPChatCo',
               },
             ],
           },
           {
-            title: 'More',
+            title: '➕ More',
             items: [
               {
-                label: 'Changelog',
+                label: '🔄 Changelog',
                 to: '/changelog',
               },
               {
-                label: 'Showcase Bots',
+                label: '🤖 Showcase Bots',
                 href: 'https://github.com/telegram-bot-sdk/awesome-telegram-bots',
               },
               {
-                label: 'GitHub',
+                label: '🐙 GitHub (Current)',
                 href: `https://github.com/${GITHUB_PATHS.REPO}`,
+              },
+              {
+                label: '🐙 GitHub (3.x)',
+                href: `https://github.com/${GITHUB_PATHS.FORMER_REPO}`,
               },
             ],
           },
           {
-            title: 'Legal',
+            title: '⚖️ Legal',
             items: [
               {
-                label: 'Code of Conduct',
+                label: '👮‍♀️ Code of Conduct',
                 to: '/community/code-of-conduct',
               },
               {
-                label: 'Security Policy',
+                label: '🔒 Security Policy',
                 to: '/community/security',
               },
               {
-                label: 'License',
+                label: '📃 License',
                 to: '/license',
               },
               {
-                label: 'Disclaimer',
+                label: '📜 Disclaimer',
                 to: '/license#disclaimer'
               }
             ],

@@ -7,21 +7,21 @@ module.exports = {
     {
       type: 'link',
       href: '/changelog',
-      label: 'Changelog',
+      label: '🔄 Changelog',
     },
     {
       type: 'link',
       href: '/license',
-      label: 'License',
+      label: '📃 License',
     },
     {
       type: 'link',
-      label: 'Chat with us on Slack',
+      label: '💬 Chat with us on Slack',
       href: 'https://phpchat.co/?ref=telegram-bot-sdk-docs',
     },
     {
       type: 'link',
-      label: 'Chat with us on Telegram',
+      label: '🐘 Chat with us on Telegram',
       href: 'https://t.me/PHPChatCo',
     },
   ],
