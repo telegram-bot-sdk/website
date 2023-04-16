@@ -12,9 +12,9 @@ export default function swCustom(params) {
       [
         /fonts\.bunny/,
         /img\.shields/,
-        /githubusercontent/,
+        /github\.com/,
+        /avatars\d*\.githubusercontent/,
         /telegram-bot-sdk\.com/,
-        /\/img\//,
       ].some((regex) => context.url.href.match(regex)),
     new StaleWhileRevalidate(),
   );
