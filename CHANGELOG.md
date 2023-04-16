@@ -166,7 +166,7 @@
 
 ### Changed
 - Update .travis.yml by @sergiy-petrov in [#707](https://github.com/irazasyed/telegram-bot-sdk/pull/707)
-- Update phpunit/phpunit requirement from ^6.1 to ^6.1 || ^8.0 by @dependabot-preview in [#708](https://github.com/irazasyed/telegram-bot-sdk/pull/708)
+- Update phpunit/phpunit requirement from ^6.1 to ^6.1 || ^8.0 by @dependabot in [#708](https://github.com/irazasyed/telegram-bot-sdk/pull/708)
 
 ### Fixed
 - Fix send invoice by @jonnywilliamson in [#610](https://github.com/irazasyed/telegram-bot-sdk/pull/610)
@@ -266,7 +266,7 @@
 - Duration Support to `sendVideo()` and `sendAudio()` methods as per Official API Changes.
 
 ### Fixed
-- Contact Object Namespace - Thanks @DmitryNek
+- Contact Object Namespace - Thanks DmitryNek.
 - `HTTPClientHandlerInterface` Laravel Config Typo.
 
 ## [0.2.5] - 2015-07-20
