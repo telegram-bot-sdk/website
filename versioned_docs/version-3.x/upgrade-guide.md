@@ -9,7 +9,7 @@ There are some breaking and major changes in this new version. Follow the below 
 To update the package in composer, fire the following command in your terminal:
 
 ```bash
-composer require irazasyed/telegram-bot-sdk:^3.10
+composer require irazasyed/telegram-bot-sdk --with-all-dependencies
 ```
 
 -- WIP --
