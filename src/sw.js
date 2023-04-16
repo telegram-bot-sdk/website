@@ -15,6 +15,7 @@ export default function swCustom(params) {
         /github\.com/,
         /avatars\d*\.githubusercontent/,
         /telegram-bot-sdk\.com/,
+        /core\.telegram\.org\/file\//,
       ].some((regex) => context.url.href.match(regex)),
     new StaleWhileRevalidate(),
   );
