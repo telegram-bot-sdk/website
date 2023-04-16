@@ -1,8 +1,9 @@
 {
-    "label": "Advanced",
+    "label": "🚀 Advanced",
     "position": 4,
     "link": {
         "type": "generated-index",
+        "slug": "/advanced",
         "description": "Advanced Usage of Telegram Bot SDK Features"
     }
 }

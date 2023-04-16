@@ -1,5 +1,18 @@
 # Telegram Bot SDK Changelog
 
+## [3.11.0] - 2023-04-16
+### Added
+- `argument($name, $default)` method in `command`.
+- `is_persistent` field of the `ReplyKeyboardMarkup` object by @pavel-mironchik in [#1063](https://github.com/irazasyed/telegram-bot-sdk/pull/1063).
+- Unicode support for command parser.
+
+### Changed
+- Refactored command system to improve arguments support. Supported patterns: `{argument}` `{ regex: \w+ }`
+- Updated `TelegramResponse.php` to improve decoding and other misc by @irpcpro in [#1053](https://github.com/irazasyed/telegram-bot-sdk/pull/1053), [#1054](https://github.com/irazasyed/telegram-bot-sdk/pull/1054), [#1057](https://github.com/irazasyed/telegram-bot-sdk/pull/1057).
+
+### Fixed
+- `setChatPhoto` method to properly upload photo file.
+
 ## [3.10.0] - 2023-04-02
 ### Added
 - Telegram Facade PHPDoc blocks.
@@ -231,7 +244,7 @@
 - API Object Classes Magic Method PHPDocs - Thanks @jonnywilliamson ([#30](https://github.com/irazasyed/telegram-bot-sdk/pull/30)).
 - New Documentation Page.
 - Telegram Bot SDK [API Docs](https://irazasyed.github.io/telegram-bot-sdk/api).
-- [Upgrade](/docs/getting-started/upgrade-guide) Guide.
+- [Upgrade](/docs/upgrade-guide) Guide.
 - Methods to Detect and Determine Message/Update Type.
 
 ### Changed

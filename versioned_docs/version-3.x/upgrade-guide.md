@@ -1,6 +1,6 @@
-# 🚀 Upgrade Guide
+# 🔺 Upgrade Guide
 
-## 🔝 Upgrading To 3.x from 2.x
+## 3️⃣ Upgrading To 3.x from 2.x
 
 There are some breaking and major changes in this new version. Follow the below instructions to apply the changes.
 

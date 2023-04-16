@@ -1,4 +1,4 @@
-# Release process
+# 🚀 Release process
 
 Let's see how Telegram Bot SDK handles **versioning, releases and breaking changes**.
 

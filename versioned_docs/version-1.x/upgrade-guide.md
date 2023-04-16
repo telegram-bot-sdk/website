@@ -3,7 +3,7 @@
 ## Upgrading To 1.0 from 0.x
 
 :::info Refer Changelog
-Check out the [CHANGELOG](changelog) for detailed info on what's changed.
+Check out the [CHANGELOG](/changelog) for detailed info on what's changed.
 :::
 
 There are some breaking and major changes in this new version. Follow the below instructions to apply the changes.
@@ -30,7 +30,7 @@ $telegram = new Telegram\Bot\Api($token);
 
 ## Updating `sendAudio` Method
 
-If you're using `sendAudio()` method anywhere in your project, Make sure you update that as per the new parameters and API change. Refer the [CHANGELOG][changelog] and API [file](https://github.com/irazasyed/telegram-bot-sdk/blob/v1.0.0/src/Api.php#L297-L324).
+If you're using `sendAudio()` method anywhere in your project, Make sure you update that as per the new parameters and API change. Refer the [CHANGELOG](/changelog) and API [file](https://github.com/irazasyed/telegram-bot-sdk/blob/v1.0.0/src/Api.php#L297-L324).
 
 ## Upgrading To 1.0 in Laravel / Lumen
 

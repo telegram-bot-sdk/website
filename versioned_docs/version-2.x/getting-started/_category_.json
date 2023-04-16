@@ -1,9 +1,10 @@
 {
-    "label": "Getting Started",
+    "label": "🏁 Getting Started",
     "position": 2,
     "collapsed": false,
     "link": {
         "type": "generated-index",
-        "description": "Getting started guide to building Telegram Bots"
+        "slug": "/getting-started",
+        "description": "Get started building your custom Telegram Bot with the help of our guides."
     }
 }

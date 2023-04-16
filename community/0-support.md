@@ -1,4 +1,4 @@
-# Support
+# 🤝 Support
 
 Telegram Bot SDK has a community of hundreds of developers.
 

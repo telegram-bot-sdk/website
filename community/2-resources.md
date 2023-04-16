@@ -1,4 +1,4 @@
-# Awesome Resources
+# 👌 Awesome Resources
 
 import ShowcaseCTA from '@site/src/components/ShowcaseCTA';
 

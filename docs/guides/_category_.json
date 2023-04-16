@@ -1,8 +1,10 @@
 {
-    "label": "Guides",
+    "label": "📖 Guides",
     "position": 3,
+    "collapsed": false,
     "link": {
         "type": "generated-index",
+        "slug": "/guides",
         "description": "Using Telegram Bot SDK Features"
     }
 }
