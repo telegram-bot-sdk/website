@@ -30,7 +30,9 @@ export default function statList() {
       setInstalls(nFormatter(data.downloads.total));
       setStargazers(nFormatter(data.github_stars));
 
-      const latestStableVer = getLatestVersionByMajor(latestVersion.name, data.versions).replace('v', '');
+      let latestStableVer = getLatestVersionByMajor(latestVersion.name, data.versions)
+        .replace('v', '')
+        .replace(/^(\d+\.\d+)\.0$/, '$1');
       setLatestStableVersion(String(latestStableVer));
     });
   }, [latestVersion]);
