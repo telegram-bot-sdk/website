@@ -2,8 +2,7 @@
     --tbs-page-width: 1200px;
     --tbs-space-gap: 24px;
     --tbs-page-margin: var(--tbs-space-gap);
-    --tbs-page-width-with-margin: calc(var(--tbs-page-width) + calc(2 * var(--tbs-page-margin)));
-
+    --tbs-page-width-with-margin: calc(var(--tbs-page-width) + 2 * var(--tbs-page-margin));
     --accents-1: #fafafa;
     --accents-2: #eaeaea;
     --accents-5: #444;
@@ -13,25 +12,23 @@
     --highlightColor: var(--tbs-foreground);
     --bkColor: transparent;
     --borderColor: var(--accents-2);
-
     --tbs-text-gradient: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 80%, rgba(0, 0, 0, 0.8) 100%);
-
     --tbs-container-bg: #fafafa;
     --tbs-container-gradient: var(--tbs-container-bg);
 }
 
-[data-theme='dark'] {
+html[data-theme='dark'] {
     --accents-1: #111;
     --accents-2: #333;
     --accents-5: #888;
     --tbs-container-bg: #070c1aa1;
-    --tbs-container-gradient: linear-gradient(to right, #0b0d1985, #070c1aa1);
-    --tbs-text-gradient: linear-gradient(180deg,#fff,hsla(0,0%,100%,.75));
+    --tbs-container-gradient: linear-gradient(to bottom, #080204, var(--ifm-background-color));
+    --tbs-text-gradient: linear-gradient(180deg, #fff, hsla(0, 0%, 100%, 0.75));
 }
 
 .statContainer {
-    margin: 2rem 0;
-    background: var(--tbs-container-bg);
+    padding: 2rem 0;
+    margin-bottom: 2rem;
     background: var(--tbs-container-gradient);
     position: relative;
 }
@@ -40,13 +37,13 @@
     margin: 0 auto;
     max-width: var(--tbs-page-width-with-margin);
     padding: var(--tbs-gap) 0;
-    background-color: var(--bkColor,var(--tbs-background));
+    background-color: var(--bkColor, var(--tbs-background));
 }
 
 .statStack {
     display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
     width: 100%;
     margin: 0 auto;
 }
@@ -75,7 +72,7 @@
     line-height: 1.14em;
     letter-spacing: -.05em;
     font-weight: 700;
-    color: var(--highlightColor,var(--tbs-foreground));
+    color: var(--highlightColor, var(--tbs-foreground));
     margin: 0;
     background: var(--tbs-text-gradient);
     background-clip: text;
