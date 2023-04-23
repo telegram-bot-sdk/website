@@ -17,7 +17,7 @@ import CodeTabs from '@site/src/components/CodeTabs';
 | [`base_bot_url`](#base-bot-url) | string _(optional)_ | **Default:** `https://api.telegram.org/bot`<br /><br />If you'd like to use a custom Base Bot Url. Should be a local bot api endpoint or a proxy to the telegram api endpoint. |
 | [`resolve_command_dependencies`](#resolve-command-dependencies) | bool _(optional)_ | **Default (Laravel):** `true` <br /><br /> With the help of dependency injection container, we can easily specify dependencies in our command's constructor and have them resolved automatically, and in Laravel, it uses its IoC container by default. |
 | [`commands`](#registering-global-commands) | array _(optional)_ | If you'd like to use the SDK's built in commands handler system, you can register all the global commands here. Global commands will apply to all the bots in system and are always active.<br /><br /> The command class should extend the `Telegram\Bot\Commands\Command` class. <br /><br /> Default: The SDK registers, a `help` command which when a user sends `/help` will respond with a list of available commands and description or upon no commands are found. |
-| [`command_groups`](#grouping-commands) | array _(optional)_ | You can organize a set of commands into groups which can later, be re-used across all your bots. <br /><br />You can create 4 types of groups: <br /> **1.** Group using full path to command classes. <br /> **2.** Group using shared commands: Provide the key name of the shared command and the system will automatically resolve to the appropriate command. <br /> **3.** Group using other groups of commands: You can create a group which uses other groups of commands to bundle them into one group. <br /> **4.** You can create a group with a combination of 1, 2 and 3 all together in one group. |
+| [`command_groups`](#grouping-commands) | array _(optional)_ | You can organize a set of commands into groups which can later, be re-used across all your bots. <br /><br />You can create 4 types of groups: <br /> **1.** [Group using full path to command classes](#using-full-path-command-classes). <br /> **2.** [Group using shared commands](#using-shared-commands): Provide the key name of the shared command and the system will automatically resolve to the appropriate command. <br /> **3.** [Group using other groups of commands](#using-other-groups-commands): You can create a group which uses other groups of commands to bundle them into one group. <br /> **4.** [Combined Command Grouping](#combined-command-grouping): You can create a group with a combination of 1, 2 and 3 all together in one group. |
 | [`shared_commands`](#shared-commands) | array _(optional)_ | Shared commands let you register commands that can be shared between, one or more bots across the project. <br /><br /> This will help you prevent from having to register same set of commands, for each bot over and over again and make it easier to maintain them. <br /><br /> Shared commands are not active by default, You need to use the key name to register them, individually in a group of commands or in bot commands. <br /><br /> Think of this as a central storage, to register, reuse and maintain them across all bots. |
 
 
@@ -209,7 +209,7 @@ You can organize a set of commands into groups which can later be reused across 
 
 You can create 4 types of groups:
 
-### 📚 1. Group using full path to command classes {#group-using-full-path-command-classes}
+### 📚 1. Using full path to command classes {#using-full-path-command-classes}
 
 > In this type of group, you can provide an array of command class names to create a group. Here is an example:
 
@@ -230,7 +230,7 @@ You can create 4 types of groups:
 👉 In this example, we are creating a group called `my_commands` which includes the `HelpCommand` and `StartCommand`. Whenever we need these two commands, we just include the `my_commands` key into the `commands` option of the bot config.
 
 
-### 🤝 2. Group using shared commands {#group-using-shared-commands}
+### 🤝 2. Using shared commands {#using-shared-commands}
 
 > In this type of group, you can provide an array of shared command names to create a group. Here is an example:
 
@@ -256,7 +256,7 @@ You can create 4 types of groups:
 👉 In this example, we are creating a group called `greeting_and_farewell` which includes two shared commands: `greeting` and `farewell`. The shared commands themselves are defined in the `shared_commands` array.
 
 
-### 🖇️ 3. Group using other groups of commands {#group-using-other-groups-commands}
+### 🖇️ 3. Using other groups of commands {#using-other-groups-commands}
 
 > In this type of group, you can provide an array of other command groups to create a group. Here is an example:
 
@@ -282,7 +282,7 @@ You can create 4 types of groups:
 👉 In this example, we are creating a group called `my_commands` which includes another group called `greeting_and_farewell` along with the `StartCommand`.
 
 
-### 💬 4. Group with a combination of the above three {#group-combination-above-three}
+### 💬 4. Combined Command Grouping {#combined-command-grouping}
 
 > In this type of group, you can create a group with a combination of the above three types. You can register shared commands, groups, and command classes altogether in a single group. Here is an example:
 
@@ -346,6 +346,6 @@ You can register commands that can be shared between multiple bots by using the 
 ];
 ```
 
-Examples on how to use shared commands are already provided in [grouping commands using shared commands](#group-using-shared-commands) and [registering multiple bots](#registering-multiple-bots) section for a better understanding.
+Examples on how to use shared commands are already provided in [grouping commands using shared commands](#using-shared-commands) and [registering multiple bots](#registering-multiple-bots) section for a better understanding.
 
 That's it! You're now ready to configure your Telegram Bot SDK and start building your Telegram Bot. Happy coding! 🎉
