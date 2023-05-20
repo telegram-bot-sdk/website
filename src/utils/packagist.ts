@@ -19,7 +19,7 @@ export async function getPackagistData(vendor: string, project: string, cacheKey
     return JSON.parse(parsedData);
   }
 
-  const json = await fetchAsJson<{ package: PackagistData }>(`https://packagist.org/packages/${vendor}/${project}.json`)
+  const json = await fetchAsJson<{ package: PackagistData }>(`https://packagist.org/packages/${vendor}/${project}.json?ts=${Date.now()}`)
   localStorage.setItem(cacheKey, JSON.stringify(json.package));
   localStorage.setItem(`${cacheKey}_date`, Date.now().toString());
 
