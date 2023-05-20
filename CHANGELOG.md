@@ -1,5 +1,14 @@
 # Telegram Bot SDK Changelog
 
+## [3.12.0] - 2023-05-20
+### Added
+- `download` HTTP method for the file downloader.
+- Added support for Pest `1.x` and `2.x`.
+
+### Changed
+- Updated Guzzle version to `7.5.1` to address security concerns.
+- Refactored codebase for improved performance, readability, and optimizations.
+
 ## [3.11.0] - 2023-04-16
 ### Added
 - `argument($name, $default)` method in `command`.
