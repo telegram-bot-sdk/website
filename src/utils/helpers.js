@@ -1,5 +1,5 @@
 export async function fetchAsJson(url) {
-  const response = await fetch(url);
+  const response = await fetch(url, { cache: "no-cache" });
 
   return await response.json();
 };
