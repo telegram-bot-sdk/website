@@ -9,11 +9,11 @@ type PackagistData = Record<string, unknown>;
 export async function getPackagistData(vendor: string, project: string, cacheKey: string, forceFresh = false): Promise<PackagistData> {
   const packagistData = getStorageItem<PackagistData>(cacheKey);
   const cachedDate = getStorageItem<string>(`${cacheKey}_date`);
-  const oneDay = 1 * 60 * 60 * 1000; // 1 hour in ms
+  const oneHour = 1 * 60 * 60 * 1000; // 1 hour in ms
 
   const parsedData = packagistData ?? null;
   const parsedDate = cachedDate ? new Date(parseInt(cachedDate, 10)) : null;
-  const isCacheValid = parsedData && parsedDate && Date.now() - parsedDate.getTime() <= oneDay;
+  const isCacheValid = parsedData && parsedDate && Date.now() - parsedDate.getTime() <= oneHour;
 
   if (isCacheValid && !forceFresh) {
     return JSON.parse(parsedData);
