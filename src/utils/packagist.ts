@@ -9,7 +9,7 @@ type PackagistData = Record<string, unknown>;
 export async function getPackagistData(vendor: string, project: string, cacheKey: string, forceFresh = false): Promise<PackagistData> {
   const packagistData = getStorageItem<PackagistData>(cacheKey);
   const cachedDate = getStorageItem<string>(`${cacheKey}_date`);
-  const oneDay = 24 * 60 * 60 * 1000; // 24 hours in ms
+  const oneDay = 1 * 60 * 60 * 1000; // 1 hour in ms
 
   const parsedData = packagistData ?? null;
   const parsedDate = cachedDate ? new Date(parseInt(cachedDate, 10)) : null;
