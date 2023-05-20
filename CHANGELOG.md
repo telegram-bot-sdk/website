@@ -339,7 +339,11 @@
 ## 0.1.0 - 2015-06-29
 - Initial Release.
 
-[unreleased]: https://github.com/irazasyed/telegram-bot-sdk/compare/v3.9...HEAD
+[unreleased]: https://github.com/irazasyed/telegram-bot-sdk/compare/v3.12.0...HEAD
+[3.12.0]: https://github.com/irazasyed/telegram-bot-sdk/compare/v3.11.0..v3.12.0
+[3.11.0]: https://github.com/irazasyed/telegram-bot-sdk/compare/v3.10.0..v3.11.0
+[3.10.0]: https://github.com/irazasyed/telegram-bot-sdk/compare/v3.9.1..v3.10.0
+[3.9.1]: https://github.com/irazasyed/telegram-bot-sdk/compare/v3.9...v3.9.1
 [3.9.0]: https://github.com/irazasyed/telegram-bot-sdk/compare/v3.8...v3.9
 [3.8.0]: https://github.com/irazasyed/telegram-bot-sdk/compare/v3.7...v3.8
 [3.7.0]: https://github.com/irazasyed/telegram-bot-sdk/compare/v3.6...v3.7
