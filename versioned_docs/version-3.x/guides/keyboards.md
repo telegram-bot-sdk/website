@@ -116,18 +116,29 @@ Example:
 
 
 ```php
-$keyboard = [
-    ['7', '8', '9'],
-    ['4', '5', '6'],
-    ['1', '2', '3'],
-         ['0']
-];
+use Telegram\Bot\Keyboard\Keyboard;
 
-$reply_markup = $telegram->replyKeyboardMarkup([
-	'keyboard' => $keyboard,
-	'resize_keyboard' => true,
-	'one_time_keyboard' => true
-]);
+$reply_markup = Keyboard::make()
+		->setResizeKeyboard(true)
+		->setOneTimeKeyboard(true)
+		->row([
+			Keyboard::button('1'),
+			Keyboard::button('2'),
+			Keyboard::button('3'),
+		])
+		->row([
+			Keyboard::button('4'),
+			Keyboard::button('5'),
+			Keyboard::button('6'),
+		])
+		->row([
+			Keyboard::button('7'),
+			Keyboard::button('8'),
+			Keyboard::button('9'),
+		])
+		->row([
+			Keyboard::button('0'),
+		]);
 
 $response = $telegram->sendMessage([
 	'chat_id' => 'CHAT_ID',
@@ -144,18 +155,29 @@ $messageId = $response->getMessageId();
 
 
 ```php
-$keyboard = [
-    ['7', '8', '9'],
-    ['4', '5', '6'],
-    ['1', '2', '3'],
-         ['0']
-];
+use Telegram\Bot\Keyboard\Keyboard;
 
-$reply_markup = Telegram::replyKeyboardMarkup([
-	'keyboard' => $keyboard,
-	'resize_keyboard' => true,
-	'one_time_keyboard' => true
-]);
+$reply_markup = Keyboard::make()
+		->setResizeKeyboard(true)
+		->setOneTimeKeyboard(true)
+		->row([
+			Keyboard::button('1'),
+			Keyboard::button('2'),
+			Keyboard::button('3'),
+		])
+		->row([
+			Keyboard::button('4'),
+			Keyboard::button('5'),
+			Keyboard::button('6'),
+		])
+		->row([
+			Keyboard::button('7'),
+			Keyboard::button('8'),
+			Keyboard::button('9'),
+		])
+		->row([
+			Keyboard::button('0'),
+		]);
 
 $response = Telegram::sendMessage([
 	'chat_id' => 'CHAT_ID',
@@ -169,11 +191,11 @@ $messageId = $response->getMessageId();
 </>
 </CodeTabs>
 
-## Reply Keyboard Hide
+## Reply Keyboard Remove
 
-Telegram clients will hide the current custom keyboard and display the default letter-keyboard.
+Telegram clients will remove the current custom keyboard and display the default letter-keyboard. By default, custom keyboards are displayed until a new keyboard is sent by a bot. An exception is made for one-time keyboards that are hidden immediately after the user presses a button
 
-See [ReplyKeyboardHide](https://core.telegram.org/bots/api#replykeyboardhide) docs for more info.
+See [ReplyKeyboardRemove](https://core.telegram.org/bots/api#replykeyboardremove) docs for more info.
 
 If called with no parameters, the `selective` option defaults to `false`.
 
@@ -181,7 +203,9 @@ If called with no parameters, the `selective` option defaults to `false`.
 <>
 
 ```php
-$reply_markup = $telegram->replyKeyboardHide();
+use Telegram\Bot\Keyboard\Keyboard;
+
+$reply_markup = Keyboard:remove(['selective' => false]);
 
 $response = $telegram->sendMessage([
 	'chat_id' => 'CHAT_ID',
@@ -195,7 +219,9 @@ $response = $telegram->sendMessage([
 <>
 
 ```php
-$reply_markup = Telegram::replyKeyboardHide();
+use Telegram\Bot\Keyboard\Keyboard;
+
+$reply_markup = Keyboard:remove(['selective' => false]);
 
 $response = Telegram::sendMessage([
 	'chat_id' => 'CHAT_ID',
@@ -218,7 +244,9 @@ If called with no parameters, the `selective` option defaults to `false`.
 <>
 
 ```php
-$reply_markup = $telegram->forceReply();
+use Telegram\Bot\Keyboard\Keyboard;
+
+$reply_markup = Keyboard:forceReply(['selective' => false]);
 
 $response = $telegram->sendMessage([
 	'chat_id' => 'CHAT_ID',
@@ -232,7 +260,9 @@ $response = $telegram->sendMessage([
 <>
 
 ```php
-$reply_markup = Telegram::forceReply();
+use Telegram\Bot\Keyboard\Keyboard;
+
+$reply_markup = Keyboard:forceReply(['selective' => false]);
 
 $response = Telegram::sendMessage([
 	'chat_id' => 'CHAT_ID',
