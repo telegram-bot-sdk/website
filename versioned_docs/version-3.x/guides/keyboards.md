@@ -205,7 +205,7 @@ If called with no parameters, the `selective` option defaults to `false`.
 ```php
 use Telegram\Bot\Keyboard\Keyboard;
 
-$reply_markup = Keyboard:remove(['selective' => false]);
+$reply_markup = Keyboard::remove(['selective' => false]);
 
 $response = $telegram->sendMessage([
 	'chat_id' => 'CHAT_ID',
@@ -221,7 +221,7 @@ $response = $telegram->sendMessage([
 ```php
 use Telegram\Bot\Keyboard\Keyboard;
 
-$reply_markup = Keyboard:remove(['selective' => false]);
+$reply_markup = Keyboard::remove(['selective' => false]);
 
 $response = Telegram::sendMessage([
 	'chat_id' => 'CHAT_ID',
@@ -246,7 +246,7 @@ If called with no parameters, the `selective` option defaults to `false`.
 ```php
 use Telegram\Bot\Keyboard\Keyboard;
 
-$reply_markup = Keyboard:forceReply(['selective' => false]);
+$reply_markup = Keyboard::forceReply(['selective' => false]);
 
 $response = $telegram->sendMessage([
 	'chat_id' => 'CHAT_ID',
@@ -262,7 +262,7 @@ $response = $telegram->sendMessage([
 ```php
 use Telegram\Bot\Keyboard\Keyboard;
 
-$reply_markup = Keyboard:forceReply(['selective' => false]);
+$reply_markup = Keyboard::forceReply(['selective' => false]);
 
 $response = Telegram::sendMessage([
 	'chat_id' => 'CHAT_ID',
