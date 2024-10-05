@@ -7,6 +7,7 @@ import {
 } from '@site/src/components/Home';
 import Layout from '@theme/Layout';
 import React from 'react';
+import TallyFormEmbed from '@site/src/components/TallyFormEmbed';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -16,6 +17,7 @@ export default function Home() {
       description={siteConfig.tagline}>
       <HeroContainer />
       <main>
+        <TallyFormEmbed />
         <StatsContainer />
         <FeaturesContainer />
         <TweetsContainer />
