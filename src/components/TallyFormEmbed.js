@@ -20,8 +20,7 @@ function TallyEmbedScript() {
           "trigger": "scroll",
           "scrollPercent": 3
         },
-        "autoClose": 0,
-        "doNotShowAfterSubmit": true
+        "autoClose": 10000
       }
     };
 
