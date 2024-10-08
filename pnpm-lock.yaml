@@ -38,6 +38,9 @@ importers:
       '@mdx-js/react':
         specifier: ^3.0.1
         version: 3.0.1(@types/react@18.3.11)(react@18.3.1)
+      babel-loader:
+        specifier: ^9.2.1
+        version: 9.2.1(@babel/core@7.25.7)(webpack@5.95.0)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -66,9 +69,6 @@ importers:
       all-contributors-cli:
         specifier: ^6.26.1
         version: 6.26.1
-      babel-loader:
-        specifier: ^9.2.1
-        version: 9.2.1(@babel/core@7.25.7)(webpack@5.95.0)
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
