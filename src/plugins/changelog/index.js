@@ -13,10 +13,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const path = require('path');
-const fs = require('fs-extra');
-const pluginContentBlog = require('@docusaurus/plugin-content-blog');
-const { aliasedSitePath, docuHash, normalizeUrl } = require('@docusaurus/utils');
+import path from "path";
+import fs from "fs-extra";
+import pluginContentBlog from "@docusaurus/plugin-content-blog";
+import { aliasedSitePath, docuHash, normalizeUrl } from "@docusaurus/utils";
 
 /**
  * Multiple versions may be published on the same day, causing the order to be
@@ -35,17 +35,15 @@ function processSection(section) {
   const title = section
     .match(/\n## .*/)?.[0]
     .trim()
-    .replace('## ', '');
+    .replace("## ", "");
   if (!title) {
     return null;
   }
 
-  let content = section
-    .replace(/\n## .*/, '')
-    .trim();
+  let content = section.replace(/\n## .*/, "").trim();
 
   let authors = content.match(/(?<=@)[\w-]+/g) || [];
-  authors.unshift('irazasyed');
+  authors.unshift("irazasyed");
 
   if (authors) {
     authors = [...new Set(authors)]
@@ -62,7 +60,7 @@ function processSection(section) {
     });
   }
 
-  content = content.replace(/@([\w-]+)/g, '[@$1](https://github.com/$1)'); // Replace usernames with profile URLs.
+  content = content.replace(/@([\w-]+)/g, "[@$1](https://github.com/$1)"); // Replace usernames with profile URLs.
 
   let hour = 20;
   const date = title.match(/\d{4}-\d{2}-\d{2}/)[0];
@@ -76,19 +74,20 @@ function processSection(section) {
   return {
     title: versionAsTitle,
     content: `---
-date: ${`${date}T${hour}:00`}${authors
+date: ${`${date}T${hour}:00`}${
+      authors
         ? `
 authors:
-${authors.map((author) => `  - '${author.username}'`).join('\n')}`
-        : ''
-      }
+${authors.map((author) => `  - '${author.username}'`).join("\n")}`
+        : ""
+    }
 ---
 
 # ${versionAsTitle}
 
 <!-- truncate -->
 
-${content.replace(/####/g, '##')}`,
+${content.replace(/####/g, "##")}`,
   };
 }
 
@@ -96,21 +95,21 @@ ${content.replace(/####/g, '##')}`,
  * @param {import('@docusaurus/types').LoadContext} context
  * @returns {import('@docusaurus/types').Plugin}
  */
-async function ChangelogPlugin(context, options) {
-  const generateDir = path.join(context.siteDir, 'changelog/source');
+export default async function ChangelogPlugin(context, options) {
+  const generateDir = path.join(context.siteDir, "changelog/source");
   const blogPlugin = await pluginContentBlog.default(context, {
     ...options,
     path: generateDir,
-    id: 'changelog',
-    blogListComponent: '@theme/ChangelogList',
-    blogPostComponent: '@theme/ChangelogPage',
+    id: "changelog",
+    blogListComponent: "@theme/ChangelogList",
+    blogPostComponent: "@theme/ChangelogPage",
   });
-  const changelogPath = path.join(__dirname, '../../../CHANGELOG.md');
+  const changelogPath = path.join(__dirname, "../../../CHANGELOG.md");
   return {
     ...blogPlugin,
-    name: 'changelog-plugin',
+    name: "changelog-plugin",
     async loadContent() {
-      const fileContent = await fs.readFile(changelogPath, 'utf-8');
+      const fileContent = await fs.readFile(changelogPath, "utf-8");
       const sections = fileContent
         .split(/(?=\n## )/)
         .map(processSection)
@@ -119,11 +118,11 @@ async function ChangelogPlugin(context, options) {
         sections.map((section) =>
           fs.outputFile(
             path.join(generateDir, `${section.title}.md`),
-            section.content,
-          ),
-        ),
+            section.content
+          )
+        )
       );
-      const authorsPath = path.join(generateDir, 'authors.json');
+      const authorsPath = path.join(generateDir, "authors.json");
       await fs.outputFile(authorsPath, JSON.stringify(authorsMap, null, 2));
       const content = await blogPlugin.loadContent();
       content.blogPosts.forEach((post, index) => {
@@ -131,7 +130,7 @@ async function ChangelogPlugin(context, options) {
         post.metadata.listPageLink = normalizeUrl([
           context.baseUrl,
           options.routeBasePath,
-          pageIndex === 0 ? '/' : `/page/${pageIndex + 1}`,
+          pageIndex === 0 ? "/" : `/page/${pageIndex + 1}`,
         ]);
       });
       return content;
@@ -140,11 +139,12 @@ async function ChangelogPlugin(context, options) {
       const config = blogPlugin.configureWebpack(...args);
       const pluginDataDirRoot = path.join(
         context.generatedFilesDir,
-        'changelog-plugin',
-        'default',
+        "changelog-plugin",
+        "default"
       );
       // Redirect the metadata path to our folder
-      config.module.rules[0].use[1].options.metadataPath = (mdxPath) => {
+      const mdxLoader = config.module.rules[0].use[0];
+      mdxLoader.options.metadataPath = (mdxPath) => {
         // Note that metadataPath must be the same/in-sync as
         // the path from createData for each MDX.
         const aliasedPath = aliasedSitePath(mdxPath, context.siteDir);
@@ -153,7 +153,7 @@ async function ChangelogPlugin(context, options) {
       return config;
     },
     getThemePath() {
-      return './theme';
+      return "./theme";
     },
     getPathsToWatch() {
       // Don't watch the generated dir
@@ -162,6 +162,4 @@ async function ChangelogPlugin(context, options) {
   };
 }
 
-ChangelogPlugin.validateOptions = pluginContentBlog.validateOptions;
-
-module.exports = ChangelogPlugin;
+export const { validateOptions } = pluginContentBlog;

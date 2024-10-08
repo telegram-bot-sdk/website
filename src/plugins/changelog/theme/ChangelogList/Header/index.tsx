@@ -42,7 +42,7 @@ export default function ChangelogListHeader({
 }): JSX.Element {
   return (
     <header className="margin-bottom--lg">
-      <Heading as="h1" style={{ fontSize: '3rem' }}>
+      <Heading as="h1" style={{fontSize: '3rem'}}>
         {blogTitle}
       </Heading>
       <p>

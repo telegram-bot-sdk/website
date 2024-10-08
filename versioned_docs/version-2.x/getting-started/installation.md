@@ -25,7 +25,7 @@ composer require irazasyed/telegram-bot-sdk:^2.0
 
 Telegram Bot SDK will self-register its service provider and facade in Laravel >=5.5.
 
-#### Laravel <5.5
+#### Laravel < 5.5
 
 If you're using Laravel `<5.5`, you'll manually have to register the service provider and facade.
 
