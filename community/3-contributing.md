@@ -13,7 +13,7 @@ Please also read our [Code of Conduct](/community/code-of-conduct) before contri
 
 - **Feature requests** first need to be discussed and accepted through an issue before sending in a pull request.
 - **Bug fixes** should contain [regression tests](https://laracasts.com/lessons/regression-testing).
-- **[Coding standards](#coding-standards)** should be followed.
+- **[Coding standards](/community/contributing#coding-standards)** should be followed.
 - **Add tests** Ensure that the current tests pass, and if you've added something new, add the tests where relevant.
 - **Document any change in behaviour** - Make sure the relevant documentation are up-to-date.
 - **Consider our release cycle** - We try to follow [SemVer v2.0.0](https://semver.org/). Randomly breaking public APIs is not an option.
@@ -21,7 +21,7 @@ Please also read our [Code of Conduct](/community/code-of-conduct) before contri
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
 - **Send coherent history** - Make sure each individual commit in your pull request is meaningful.
 
-## 👨‍💻 Coding Standards {#coding-standard}
+## 👨‍💻 Coding Standards {#coding-standards}
 
 - [PSR-12 Coding Standard](https://www.php-fig.org/psr/psr-12/) will automatically be applied by Github Actions.
 - Make sure to typehint and declare return type where applicable.

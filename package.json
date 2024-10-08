@@ -29,12 +29,15 @@
         "clsx": "^2.1.1",
         "prism-react-renderer": "^2.4.0",
         "react": "^18.3.1",
-        "react-dom": "^18.3.1"
+        "react-dom": "^18.3.1",
+        "workbox-routing": "^7.1.0",
+        "workbox-strategies": "^7.1.0"
     },
     "devDependencies": {
         "@docusaurus/module-type-aliases": "^3.5.2",
         "@docusaurus/types": "^3.5.2",
         "all-contributors-cli": "^6.26.1",
+        "babel-loader": "^9.2.1",
         "cross-env": "^7.0.3"
     },
     "browserslist": {
@@ -44,9 +47,9 @@
             "not op_mini all"
         ],
         "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
+            "last 3 chrome version",
+            "last 3 firefox version",
+            "last 5 safari version"
         ]
     },
     "engines": {

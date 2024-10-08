@@ -70,14 +70,15 @@ const config = {
     locales: ENV.isDeployPreview
       ? [ENV.defaultLocale]
       : ENV.isI18nStaging
-      ? [ENV.defaultLocale, "ru"]
+      ? [ENV.defaultLocale]
       : [ENV.defaultLocale],
   },
 
   presets: [
     [
-      "@docusaurus/preset-classic",
-      {
+      "classic",
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: ({ locale, docPath }) =>
@@ -110,7 +111,7 @@ const config = {
               : `https://github.com/${GITHUB.WEBSITE}/edit/main/${blogDirPath}/${blogPath}`,
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: "./src/css/custom.css",
         },
         gtag: !ENV.isDeployPreview
           ? {
@@ -118,7 +119,7 @@ const config = {
               anonymizeIP: true,
             }
           : undefined,
-      },
+      }),
     ],
   ],
 
@@ -146,7 +147,7 @@ const config = {
       },
     ],
     [
-      "@docusaurus/plugin-ideal-image",
+      "ideal-image",
       {
         quality: 70,
         max: 1030,
@@ -156,7 +157,7 @@ const config = {
       },
     ],
     [
-      "@docusaurus/plugin-content-docs",
+      "content-docs",
       {
         id: "community",
         path: "community",
@@ -171,7 +172,7 @@ const config = {
       },
     ],
     [
-      "@docusaurus/plugin-pwa",
+      "pwa",
       {
         debug: ENV.isDeployPreview,
         offlineModeActivationStrategies: [
@@ -208,183 +209,185 @@ const config = {
     ],
   ],
 
-  themeConfig: {
-    image: "img/social-card.jpg",
-    colorMode: {
-      defaultMode: "dark",
-      respectPrefersColorScheme: true,
-    },
-    docs: {
-      sidebar: {
-        hideable: false,
-        autoCollapseCategories: true,
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      image: "img/social-card.jpg",
+      colorMode: {
+        defaultMode: "dark",
+        respectPrefersColorScheme: true,
       },
-    },
-    announcementBar: {
-      id: "announcementBar_1",
-      content:
-        '⭐️ If you like Telegram Bot SDK, give it a star on <a target="_blank" href="https://github.com/telegram-bot-sdk/telegram-bot-sdk">GitHub</a>! ⭐️',
-    },
-    navbar: {
-      hideOnScroll: false,
-      title: "Telegram Bot SDK",
-      logo: {
-        alt: "Telegram Bot SDK",
-        src: "img/logo.svg",
+      docs: {
+        sidebar: {
+          hideable: false,
+          autoCollapseCategories: true,
+        },
       },
+      announcementBar: {
+        id: "announcementBar_1",
+        content:
+          '⭐️ If you like Telegram Bot SDK, give it a star on <a target="_blank" href="https://github.com/telegram-bot-sdk/telegram-bot-sdk">GitHub</a>! ⭐️',
+      },
+      navbar: {
+        hideOnScroll: false,
+        title: "Telegram Bot SDK",
+        logo: {
+          alt: "Telegram Bot SDK",
+          src: "img/logo.svg",
+        },
 
-      items: [
-        {
-          type: "doc",
-          docId: "intro",
-          position: "left",
-          label: "📖 Docs",
-        },
-        { to: "/blog", label: "📝 Blog", position: "left" },
-        {
-          to: "/community/support",
-          label: "👥 Community",
-          position: "left",
-          activeBaseRegex: `/community/`,
-        },
-        {
-          href: "https://github.com/telegram-bot-sdk/awesome-telegram-bots",
-          label: "🤖 Showcase Bots",
-          position: "left",
-        },
-        {
-          type: "docsVersionDropdown",
-          position: "right",
-          dropdownActiveClassDisabled: true,
-          dropdownItemsAfter: [
-            {
-              type: "html",
-              value: '<hr class="dropdown-separator">',
-            },
-            {
-              to: "/versions",
-              label: "🗄️ All versions",
-            },
-          ],
-        },
-        {
-          type: "localeDropdown",
-          position: "right",
-          dropdownItemsAfter: [
-            {
-              // Create translation issue.
-              to: `https://github.com/${GITHUB.WEBSITE}/issues/123456`,
-              label: "🌐 Help us translate",
-            },
-          ],
-        },
-        {
-          href: `https://github.com/${GITHUB.REPO}`,
-          position: "right",
-          className: "header-github-link",
-          "aria-label": "GitHub repository",
-        },
-      ],
-    },
-    footer: {
-      style: "dark",
-      links: [
-        {
-          title: "📚 Learn",
-          items: [
-            {
-              label: "👋 Introduction",
-              to: "/docs",
-            },
-            {
-              label: "🛠️ Installation",
-              to: "docs/getting-started/installation",
-            },
-            {
-              label: "🔺 Upgrade Guide",
-              to: "docs/upgrade-guide",
-            },
-            {
-              label: "📝 Blog",
-              to: "/blog",
-            },
-          ],
-        },
-        {
-          title: "👥 Community",
-          items: [
-            {
-              label: "🤝 Support",
-              to: "/community/support",
-            },
-            {
-              label: "👌 Awesome Resources",
-              to: "/community/resources",
-            },
-            {
-              label: "📖 Contributing Guide",
-              to: "/community/contributing",
-            },
-            {
-              label: "💬 PHP Chat on Slack",
-              href: "https://phpchat.co",
-            },
-            {
-              label: "🐘 PHP Chat on Telegram",
-              href: "https://t.me/PHPChatCo",
-            },
-          ],
-        },
-        {
-          title: "➕ More",
-          items: [
-            {
-              label: "🔄 Changelog",
-              to: "/changelog",
-            },
-            {
-              label: "🤖 Showcase Bots",
-              href: "https://github.com/telegram-bot-sdk/awesome-telegram-bots",
-            },
-            {
-              label: "🐙 GitHub (Current)",
-              href: `https://github.com/${GITHUB.REPO}`,
-            },
-            {
-              label: "🐙 GitHub (3.x)",
-              href: `https://github.com/${GITHUB.FORMER_REPO}`,
-            },
-          ],
-        },
-        {
-          title: "⚖️ Legal",
-          items: [
-            {
-              label: "👮‍♀️ Code of Conduct",
-              to: "/community/code-of-conduct",
-            },
-            {
-              label: "🔒 Security Policy",
-              to: "/community/security",
-            },
-            {
-              label: "📃 License",
-              to: "/license",
-            },
-            {
-              label: "📜 Disclaimer",
-              to: "/license#disclaimer",
-            },
-          ],
-        },
-      ],
-      logo: {
-        alt: "Telegram Bot SDK",
-        src: "img/robot.png",
-        href: "https://telegram-bot-sdk.com",
-        height: 120,
+        items: [
+          {
+            type: "doc",
+            docId: "intro",
+            position: "left",
+            label: "📖 Docs",
+          },
+          { to: "/blog", label: "📝 Blog", position: "left" },
+          {
+            to: "/community/support",
+            label: "👥 Community",
+            position: "left",
+            activeBaseRegex: `/community/`,
+          },
+          {
+            href: "https://github.com/telegram-bot-sdk/awesome-telegram-bots",
+            label: "🤖 Showcase Bots",
+            position: "left",
+          },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
+            dropdownActiveClassDisabled: true,
+            dropdownItemsAfter: [
+              {
+                type: "html",
+                value: '<hr class="dropdown-separator">',
+              },
+              {
+                to: "/versions",
+                label: "🗄️ All versions",
+              },
+            ],
+          },
+          {
+            type: "localeDropdown",
+            position: "right",
+            dropdownItemsAfter: [
+              {
+                // Create translation issue.
+                to: `https://github.com/${GITHUB.WEBSITE}/issues/123456`,
+                label: "🌐 Help us translate",
+              },
+            ],
+          },
+          {
+            href: `https://github.com/${GITHUB.REPO}`,
+            position: "right",
+            className: "header-github-link",
+            "aria-label": "GitHub repository",
+          },
+        ],
       },
-      copyright: `
+      footer: {
+        style: "dark",
+        links: [
+          {
+            title: "📚 Learn",
+            items: [
+              {
+                label: "👋 Introduction",
+                to: "/docs",
+              },
+              {
+                label: "🛠️ Installation",
+                to: "docs/getting-started/installation",
+              },
+              {
+                label: "🔺 Upgrade Guide",
+                to: "docs/upgrade-guide",
+              },
+              {
+                label: "📝 Blog",
+                to: "/blog",
+              },
+            ],
+          },
+          {
+            title: "👥 Community",
+            items: [
+              {
+                label: "🤝 Support",
+                to: "/community/support",
+              },
+              {
+                label: "👌 Awesome Resources",
+                to: "/community/resources",
+              },
+              {
+                label: "📖 Contributing Guide",
+                to: "/community/contributing",
+              },
+              {
+                label: "💬 PHP Chat on Slack",
+                href: "https://phpchat.co",
+              },
+              {
+                label: "🐘 PHP Chat on Telegram",
+                href: "https://t.me/PHPChatCo",
+              },
+            ],
+          },
+          {
+            title: "➕ More",
+            items: [
+              {
+                label: "🔄 Changelog",
+                to: "/changelog",
+              },
+              {
+                label: "🤖 Showcase Bots",
+                href: "https://github.com/telegram-bot-sdk/awesome-telegram-bots",
+              },
+              {
+                label: "🐙 GitHub (Current)",
+                href: `https://github.com/${GITHUB.REPO}`,
+              },
+              {
+                label: "🐙 GitHub (3.x)",
+                href: `https://github.com/${GITHUB.FORMER_REPO}`,
+              },
+            ],
+          },
+          {
+            title: "⚖️ Legal",
+            items: [
+              {
+                label: "👮‍♀️ Code of Conduct",
+                to: "/community/code-of-conduct",
+              },
+              {
+                label: "🔒 Security Policy",
+                to: "/community/security",
+              },
+              {
+                label: "📃 License",
+                to: "/license",
+              },
+              {
+                label: "📜 Disclaimer",
+                to: "/license#disclaimer",
+              },
+            ],
+          },
+        ],
+        logo: {
+          alt: "Telegram Bot SDK",
+          src: "img/robot.png",
+          href: "https://telegram-bot-sdk.com",
+          height: 120,
+        },
+        copyright: `
       <p>
         Copyright © 2015-${new Date().getFullYear()} Telegram Bot SDK for PHP. All rights reserved. • Created by <a target="_blank" href="https://github.com/irazasyed">Irfaq Syed</a>
       </p>
@@ -393,41 +396,41 @@ const config = {
         The Telegram Bot SDK is a third-party library and is not associated with, endorsed by, or affiliated with Telegram or its products.
       </p>
       `,
-    },
-    prism: {
-      theme: themes.github,
-      darkTheme: themes.dracula,
-      defaultLanguage: "php",
-      additionalLanguages: ["php", "diff", "bash", "json"],
-      magicComments: [
-        {
-          className: "theme-code-block-highlighted-line",
-          line: "highlight-next-line",
-          block: { start: "highlight-start", end: "highlight-end" },
-        },
-        {
-          className: "code-block-error-line",
-          line: "This will error",
-        },
-      ],
-    },
-    algolia: {
-      appId: "L4ICB0MOQG",
-      apiKey: "3e3d11f655b7eda59f531e8be4d2a6a1",
-      indexName: "telegram-bot-sdk",
-      replaceSearchResultPathname:
-        ENV.isDev || ENV.isDeployPreview
-          ? {
-              from: /^\/docs\/next/g,
-              to: "/docs",
-            }
-          : undefined,
-    },
-    tableOfContents: {
-      minHeadingLevel: 2,
-      maxHeadingLevel: 5,
-    },
-  },
+      },
+      prism: {
+        theme: themes.github,
+        darkTheme: themes.dracula,
+        defaultLanguage: "php",
+        additionalLanguages: ["php", "diff", "bash", "json"],
+        magicComments: [
+          {
+            className: "theme-code-block-highlighted-line",
+            line: "highlight-next-line",
+            block: { start: "highlight-start", end: "highlight-end" },
+          },
+          {
+            className: "code-block-error-line",
+            line: "This will error",
+          },
+        ],
+      },
+      algolia: {
+        appId: "L4ICB0MOQG",
+        apiKey: "3e3d11f655b7eda59f531e8be4d2a6a1",
+        indexName: "telegram-bot-sdk",
+        replaceSearchResultPathname:
+          ENV.isDev || ENV.isDeployPreview
+            ? {
+                from: /^\/docs\/next/g,
+                to: "/docs",
+              }
+            : undefined,
+      },
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 5,
+      },
+    }),
 };
 
 export default config;
