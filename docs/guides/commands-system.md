@@ -224,7 +224,7 @@ Here's an example with long polling updates:
 <>
 
 ```php
-$update = $telegram->commandsHandler(false, ['timeout' => 30]);
+$update = $telegram->commandsHandler(false);
 ```
 
 </>
@@ -232,7 +232,7 @@ $update = $telegram->commandsHandler(false, ['timeout' => 30]);
 <>
 
 ```php
-$update = Telegram::commandsHandler(false, ['timeout' => 30]);
+$update = Telegram::commandsHandler(false);
 ```
 
 </>
